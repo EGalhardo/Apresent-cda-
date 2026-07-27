@@ -1,10 +1,11 @@
 import React from 'react';
-import { Flag, CheckCircle2, Clock, AlertCircle, TrendingUp, ShieldCheck, Target } from 'lucide-react';
+import { Flag, CheckCircle2, Clock, AlertCircle, Target } from 'lucide-react';
 import Card, { CardTitle } from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
 import Tooltip from '../components/ui/Tooltip';
+import PageHeader from '../components/ui/PageHeader';
+import ProgressBar from '../components/ui/ProgressBar';
 import { useERP } from '../context/ERPContext';
-import { formatAOA } from '../utils/format';
 
 export interface StrategicGoal {
   id: string;
@@ -97,96 +98,92 @@ export default function StrategicGoalsPage() {
   const getStatusBadge = (status: StrategicGoal['status']) => {
     switch (status) {
       case 'completed':
-        return <Badge variant="green"><CheckCircle2 size={12} className="mr-1" /> Concluído</Badge>;
+        return <Badge variant="emerald" icon={CheckCircle2}>Concluído</Badge>;
       case 'in_progress':
-        return <Badge variant="blue"><Clock size={12} className="mr-1" /> Em Progresso</Badge>;
+        return <Badge variant="blue" icon={Clock}>Em Progresso</Badge>;
       case 'pending':
-        return <Badge variant="amber"><AlertCircle size={12} className="mr-1" /> Pendente</Badge>;
+        return <Badge variant="amber" icon={AlertCircle}>Pendente</Badge>;
       case 'planned':
-        return <Badge variant="purple"><Flag size={12} className="mr-1" /> Planeado</Badge>;
+        return <Badge variant="purple" icon={Flag}>Planeado</Badge>;
     }
   };
 
-  const getStatusColor = (status: StrategicGoal['status']) => {
+  const getProgressColor = (status: StrategicGoal['status']): 'emerald' | 'blue' | 'amber' | 'purple' => {
     switch (status) {
-      case 'completed': return 'bg-emerald-500';
-      case 'in_progress': return 'bg-blue-600';
-      case 'pending': return 'bg-amber-500';
-      case 'planned': return 'bg-purple-500';
+      case 'completed': return 'emerald';
+      case 'in_progress': return 'blue';
+      case 'pending': return 'amber';
+      case 'planned': return 'purple';
     }
   };
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Page Header */}
-      <div className="bg-white p-6 rounded-3xl space-y-2">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Badge variant="blue">Planeamento Executivo</Badge>
-            <span className="text-xs text-gray-400 font-mono">Plano Financeiro & Operacional</span>
-          </div>
-          <span className="text-xs text-gray-500 font-semibold">{initialStrategicGoals.length} Metas Registadas</span>
-        </div>
-        <h1 className="text-2xl font-bold text-gray-900">Metas Estratégicas</h1>
-        <p className="text-xs sm:text-sm text-gray-600 max-w-4xl font-medium leading-relaxed text-justify">
-          As metas estratégicas representam os principais objetivos de crescimento do Correio Digital Angola ao longo da implementação. Incluem indicadores quantitativos de adoção institucional, número de utilizadores, geração de receitas, expansão territorial e consolidação do modelo de negócio, permitindo acompanhar a evolução do projeto através de métricas claras e mensuráveis.
-        </p>
-      </div>
+      <PageHeader
+        badge="Planeamento Executivo"
+        secondaryBadge={`${initialStrategicGoals.length} Metas Registadas`}
+        title="Metas Estratégicas"
+        description="As metas estratégicas representam os principais objetivos de crescimento do Correio Digital Angola ao longo da implementação. Incluem indicadores quantitativos de adoção institucional, número de utilizadores, geração de receitas, expansão territorial e consolidação do modelo de negócio, permitindo acompanhar a evolução do projeto através de métricas claras e mensuráveis."
+        icon={Target}
+      />
 
-      {/* Vertical List - Requirement 7 */}
+      {/* Vertical List */}
       <Card padding={false} className="overflow-hidden">
-        <div className="p-4 bg-slate-50 text-xs font-bold text-gray-500 uppercase tracking-wider grid grid-cols-12 gap-4 items-center">
+        <div className="p-4 bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-wider grid grid-cols-12 gap-4 items-center">
           <div className="col-span-12 md:col-span-6">Título & Descrição da Meta</div>
           <div className="col-span-6 md:col-span-2 text-left md:text-center">Estado</div>
           <div className="col-span-6 md:col-span-4">Progresso & Alvo</div>
         </div>
 
-        {initialStrategicGoals.map((goal, index) => (
-          <Tooltip
-            key={goal.id}
-            title={`Meta ${index + 1}: ${goal.title}`}
-            purpose={`Métrica de acompanhamento: ${goal.category}`}
-            meaning={`Progresso previsto de ${goal.progress}% com meta quantitativa de ${goal.targetValue}`}
-            className="w-full"
-          >
-            <div className="p-5 hover:bg-slate-50/80 transition-colors grid grid-cols-12 gap-4 items-center border-b border-slate-100 last:border-b-0">
-              {/* Title & Description with Sequential Number */}
-              <div className="col-span-12 md:col-span-6 space-y-1">
-                <div className="flex items-center gap-2.5 flex-wrap">
-                  <span className="w-6 h-6 rounded-lg bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center font-mono flex-shrink-0 shadow-2xs">
-                    {index + 1}
-                  </span>
-                  <span className="text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-md font-mono">{goal.category}</span>
-                  <h3 className="text-sm font-bold text-gray-900 leading-snug">
-                    <span className="text-blue-800 font-extrabold mr-1">{index + 1}.</span> {goal.title}
-                  </h3>
+        <div className="divide-y divide-slate-100">
+          {initialStrategicGoals.map((goal, index) => (
+            <Tooltip
+              key={goal.id}
+              title={`Meta ${index + 1}: ${goal.title}`}
+              purpose={`Métrica de acompanhamento: ${goal.category}`}
+              meaning={`Progresso previsto de ${goal.progress}% com meta quantitativa de ${goal.targetValue}`}
+              className="w-full"
+            >
+              <div className="p-5 sm:p-6 hover:bg-slate-50/80 transition-colors grid grid-cols-12 gap-4 items-center">
+                {/* Title & Description with Sequential Number */}
+                <div className="col-span-12 md:col-span-6 space-y-1.5">
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    <span className="w-7 h-7 rounded-lg bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center font-mono flex-shrink-0 shadow-2xs">
+                      {index + 1}
+                    </span>
+                    <Badge variant="blue" size="sm">{goal.category}</Badge>
+                    <h3 className="text-sm font-extrabold text-slate-900 leading-snug">
+                      {goal.title}
+                    </h3>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed pl-9 md:pl-0 font-medium text-justify">
+                    {goal.description}
+                  </p>
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed pl-8 md:pl-0.5 font-medium">{goal.description}</p>
-              </div>
 
-              {/* Status Badge */}
-              <div className="col-span-6 md:col-span-2 flex items-center md:justify-center">
-                {getStatusBadge(goal.status)}
-              </div>
-
-              {/* Progress Indicator */}
-              <div className="col-span-6 md:col-span-4 space-y-1.5">
-                <div className="flex justify-between items-center text-xs">
-                  <span className="font-bold text-gray-700">{goal.progress}%</span>
-                  {goal.targetValue && (
-                    <span className="text-[11px] text-gray-400 font-medium">Meta: {goal.targetValue}</span>
-                  )}
+                {/* Status Badge */}
+                <div className="col-span-6 md:col-span-2 flex items-center md:justify-center">
+                  {getStatusBadge(goal.status)}
                 </div>
-                <div className="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden p-0.5">
-                  <div
-                    className={`h-full rounded-full transition-all duration-700 ${getStatusColor(goal.status)}`}
-                    style={{ width: `${goal.progress}%` }}
+
+                {/* Progress Indicator */}
+                <div className="col-span-6 md:col-span-4 space-y-1">
+                  <div className="flex justify-between items-center text-xs mb-1">
+                    {goal.targetValue && (
+                      <span className="text-[11px] text-slate-500 font-semibold">Alvo: {goal.targetValue}</span>
+                    )}
+                  </div>
+                  <ProgressBar
+                    value={goal.progress}
+                    color={getProgressColor(goal.status)}
+                    showPercent={true}
                   />
                 </div>
               </div>
-            </div>
-          </Tooltip>
-        ))}
+            </Tooltip>
+          ))}
+        </div>
       </Card>
     </div>
   );

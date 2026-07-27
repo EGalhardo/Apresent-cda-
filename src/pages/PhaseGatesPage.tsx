@@ -3,6 +3,8 @@ import { ShieldCheck, CheckCircle2, Clock, AlertCircle, ArrowRight, Target, Awar
 import Card, { CardTitle } from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
 import Tooltip from '../components/ui/Tooltip';
+import PageHeader from '../components/ui/PageHeader';
+import SectionHeader from '../components/ui/SectionHeader';
 import { useERP } from '../context/ERPContext';
 
 export interface PhaseGateDetails {
@@ -115,66 +117,63 @@ export default function PhaseGatesPage() {
   const getStatusBadge = (status: PhaseGateDetails['status']) => {
     switch (status) {
       case 'completed':
-        return <Badge variant="green"><CheckCircle2 size={12} className="mr-1" /> Aprovado</Badge>;
+        return <Badge variant="emerald" icon={CheckCircle2}>Aprovado</Badge>;
       case 'in_progress':
-        return <Badge variant="blue"><Clock size={12} className="mr-1" /> Em Execução</Badge>;
+        return <Badge variant="blue" icon={Clock}>Em Execução</Badge>;
       case 'pending':
-        return <Badge variant="amber"><AlertCircle size={12} className="mr-1" /> Pendente</Badge>;
+        return <Badge variant="amber" icon={AlertCircle}>Pendente</Badge>;
     }
   };
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Page Header */}
-      <div className="bg-white p-6 rounded-3xl border border-slate-300 space-y-2">
-        <div className="flex items-center gap-2">
-          <Badge variant="blue">Governança do Projecto</Badge>
-          <span className="text-xs text-slate-600 font-mono font-semibold">Gates de Controlo Rígido</span>
-        </div>
-        <h1 className="text-2xl font-bold text-gray-900">Etapas de Transição (Phase Gates)</h1>
-        <p className="text-xs sm:text-sm text-slate-700 max-w-4xl font-medium leading-relaxed text-justify">
-          O plano de execução encontra-se dividido em fases de validação técnica, operacional e comercial. Cada etapa possui critérios objetivos de desempenho que condicionam a passagem para a fase seguinte e a respetiva libertação das tranches de financiamento, assegurando uma implementação controlada, transparente e orientada para resultados.
-        </p>
-      </div>
+      <PageHeader
+        badge="Governança do Projecto"
+        secondaryBadge="Gates de Controlo Rígido"
+        title="Etapas de Transição (Phase Gates)"
+        description="O plano de execução encontra-se dividido em fases de validação técnica, operacional e comercial. Cada etapa possui critérios objetivos de desempenho que condicionam a passagem para a fase seguinte e a respetiva libertação das tranches de financiamento, assegurando uma implementação controlada, transparente e orientada para resultados."
+        icon={ShieldCheck}
+      />
 
-      {/* Phase Gates Exclusive Content - Requirement 9 */}
+      {/* Phase Gates Cards */}
       <div className="space-y-6">
         {phaseGatesDetailed.map((gate) => (
           <Tooltip
             key={gate.id}
             title={gate.name}
             purpose={`Mecanismo de validação: Passagem de ${gate.phaseFrom} para ${gate.phaseTo}`}
-            meaning={`A transição de fase requer o cumprimento a 100% dos critérios rígidos listados`}
+            meaning="A transição de fase requer o cumprimento a 100% dos critérios rígidos listados"
             className="w-full"
           >
-            <Card className="p-6 bg-white border border-slate-300 border-l-4 border-l-blue-600 space-y-6 shadow-sm">
+            <Card className="space-y-6">
               {/* Header */}
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-slate-100">
                 <div className="space-y-1">
-                  <div className="flex items-center gap-3">
-                    <span className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center font-mono">
-                      G{gate.id}
+                  <div className="flex items-center gap-2">
+                    <span className="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 font-extrabold flex items-center justify-center text-xs border border-blue-100">
+                      0{gate.id}
                     </span>
-                    <h2 className="text-lg font-bold text-slate-900">{gate.name}</h2>
+                    <h2 className="text-lg font-extrabold text-slate-900">{gate.name}</h2>
                   </div>
-                  <p className="text-xs text-slate-600 font-medium">
-                    Transição: <strong className="text-slate-800">{gate.phaseFrom}</strong> → <strong className="text-blue-600 font-bold">{gate.phaseTo}</strong>
+                  <p className="text-xs text-slate-500 font-medium">
+                    Transição: <span className="font-bold text-slate-700">{gate.phaseFrom}</span> → <span className="font-bold text-blue-700">{gate.phaseTo}</span>
                   </p>
                 </div>
-                <div>{getStatusBadge(gate.status)}</div>
+                {getStatusBadge(gate.status)}
               </div>
 
-              {/* 4 Quadrants: Criteria, Milestones, Objectives, Deliverables */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* 1. Critérios de Passagem */}
-                <div className="bg-white p-4 rounded-2xl border border-slate-300 space-y-2 shadow-2xs">
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">
-                    <ShieldCheck size={16} className="text-blue-600" />
-                    <span>Critérios de Passagem (Rígidos)</span>
-                  </div>
-                  <ul className="space-y-1.5 text-xs text-slate-700 font-medium">
+              {/* Grid Content */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-700 font-medium">
+                {/* Criteria */}
+                <div className="space-y-2 bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
+                  <p className="font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                    <CheckSquare size={16} className="text-blue-600" />
+                    <span>Critérios de Aprovação Rígidos</span>
+                  </p>
+                  <ul className="space-y-2 pt-1">
                     {gate.criteria.map((c, i) => (
-                      <li key={i} className="flex items-start gap-2">
+                      <li key={i} className="flex items-start gap-2 text-justify">
                         <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
                         <span>{c}</span>
                       </li>
@@ -182,47 +181,47 @@ export default function PhaseGatesPage() {
                   </ul>
                 </div>
 
-                {/* 2. Marcos (Milestones) */}
-                <div className="bg-white p-4 rounded-2xl border border-slate-300 space-y-2 shadow-2xs">
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">
-                    <Target size={16} className="text-purple-600" />
-                    <span>Marcos Estratégicos (Milestones)</span>
-                  </div>
-                  <ul className="space-y-1.5 text-xs text-slate-700 font-medium">
+                {/* Milestones */}
+                <div className="space-y-2 bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
+                  <p className="font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                    <Target size={16} className="text-emerald-600" />
+                    <span>Marcos Principais (Milestones)</span>
+                  </p>
+                  <ul className="space-y-2 pt-1">
                     {gate.milestones.map((m, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckSquare size={14} className="text-purple-600 flex-shrink-0 mt-0.5" />
-                        <span className="font-semibold text-slate-900">{m}</span>
+                      <li key={i} className="flex items-start gap-2 text-justify">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 flex-shrink-0" />
+                        <span>{m}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* 3. Objectivos */}
-                <div className="bg-white p-4 rounded-2xl border border-slate-300 space-y-2 shadow-2xs">
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">
-                    <Award size={16} className="text-emerald-600" />
-                    <span>Objectivos Específicos</span>
-                  </div>
-                  <ul className="space-y-1.5 text-xs text-slate-700 font-medium">
+                {/* Objectives */}
+                <div className="space-y-2 bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
+                  <p className="font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                    <Award size={16} className="text-purple-600" />
+                    <span>Objectivos da Etapa</span>
+                  </p>
+                  <ul className="space-y-2 pt-1">
                     {gate.objectives.map((o, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 flex-shrink-0" />
+                      <li key={i} className="flex items-start gap-2 text-justify">
+                        <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-1.5 flex-shrink-0" />
                         <span>{o}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* 4. Entregáveis */}
-                <div className="bg-white p-4 rounded-2xl border border-slate-300 space-y-2 shadow-2xs">
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">
+                {/* Deliverables */}
+                <div className="space-y-2 bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
+                  <p className="font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
                     <FileText size={16} className="text-amber-600" />
-                    <span>Entregáveis Mandatórios</span>
-                  </div>
-                  <ul className="space-y-1.5 text-xs text-slate-700 font-medium">
+                    <span>Entregáveis Documentais</span>
+                  </p>
+                  <ul className="space-y-2 pt-1">
                     {gate.deliverables.map((d, i) => (
-                      <li key={i} className="flex items-start gap-2">
+                      <li key={i} className="flex items-start gap-2 text-justify">
                         <span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 flex-shrink-0" />
                         <span>{d}</span>
                       </li>
@@ -231,13 +230,9 @@ export default function PhaseGatesPage() {
                 </div>
               </div>
 
-              {/* Estado de Execução */}
-              <div className="p-3.5 bg-white rounded-xl border border-slate-300 text-xs text-slate-900 flex items-center gap-3 shadow-2xs">
-                <Clock size={16} className="text-blue-600 flex-shrink-0" />
-                <div>
-                  <strong className="font-extrabold text-slate-900">Estado de Execução: </strong>
-                  <span className="font-medium text-slate-800">{gate.executionDetails}</span>
-                </div>
+              {/* Execution Details Note */}
+              <div className="p-4 bg-blue-50/80 border border-blue-200/80 rounded-2xl text-xs font-semibold text-blue-900 text-justify">
+                <strong>Estado de Execução Atual:</strong> {gate.executionDetails}
               </div>
             </Card>
           </Tooltip>

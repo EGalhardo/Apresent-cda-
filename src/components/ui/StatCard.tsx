@@ -1,45 +1,84 @@
 import React from 'react';
 import { LucideIcon, TrendingUp, TrendingDown } from 'lucide-react';
 import { cn } from '../../utils/format';
+import Badge from './Badge';
 
-interface StatCardProps {
+export interface StatCardProps {
+  key?: React.Key;
   title: string;
   value: string;
   subtitle?: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
   trend?: { value: string; up: boolean };
-  color?: 'blue' | 'green' | 'purple' | 'amber' | 'red' | 'cyan';
+  badge?: string;
+  badgeVariant?: 'blue' | 'emerald' | 'purple' | 'amber' | 'red' | 'gray';
+  color?: 'blue' | 'green' | 'emerald' | 'purple' | 'amber' | 'red' | 'cyan' | 'slate';
+  className?: string;
 }
 
-const colors = {
-  blue: { bg: 'bg-blue-50', icon: 'bg-blue-500', text: 'text-blue-600' },
-  green: { bg: 'bg-emerald-50', icon: 'bg-emerald-500', text: 'text-emerald-600' },
-  purple: { bg: 'bg-purple-50', icon: 'bg-purple-500', text: 'text-purple-600' },
-  amber: { bg: 'bg-amber-50', icon: 'bg-amber-500', text: 'text-amber-600' },
-  red: { bg: 'bg-red-50', icon: 'bg-red-500', text: 'text-red-600' },
-  cyan: { bg: 'bg-cyan-50', icon: 'bg-cyan-500', text: 'text-cyan-600' },
+const colorStyles = {
+  blue: { bg: 'bg-blue-50/90 text-blue-600 border-blue-100', accent: 'bg-blue-600' },
+  green: { bg: 'bg-emerald-50/90 text-emerald-600 border-emerald-100', accent: 'bg-emerald-600' },
+  emerald: { bg: 'bg-emerald-50/90 text-emerald-600 border-emerald-100', accent: 'bg-emerald-600' },
+  purple: { bg: 'bg-purple-50/90 text-purple-600 border-purple-100', accent: 'bg-purple-600' },
+  amber: { bg: 'bg-amber-50/90 text-amber-600 border-amber-100', accent: 'bg-amber-600' },
+  red: { bg: 'bg-red-50/90 text-red-600 border-red-100', accent: 'bg-red-600' },
+  cyan: { bg: 'bg-cyan-50/90 text-cyan-600 border-cyan-100', accent: 'bg-cyan-600' },
+  slate: { bg: 'bg-slate-100 text-slate-700 border-slate-200', accent: 'bg-slate-700' },
 };
 
-export default function StatCard({ title, value, subtitle, icon: Icon, trend, color = 'blue' }: StatCardProps) {
-  const c = colors[color];
+export default function StatCard({
+  title,
+  value,
+  subtitle,
+  icon: Icon,
+  trend,
+  badge,
+  badgeVariant = 'blue',
+  color = 'blue',
+  className = '',
+}: StatCardProps) {
+  const c = colorStyles[color] || colorStyles.blue;
+
   return (
-    <div className={cn('rounded-2xl p-5 border border-slate-300 bg-white')}>
-      <div className="flex items-start justify-between">
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-semibold text-slate-700 truncate">{title}</p>
-          <p className="mt-1.5 text-2xl font-bold text-gray-900 leading-tight">{value}</p>
-          {subtitle && <p className="mt-1 text-xs font-medium text-slate-600">{subtitle}</p>}
-          {trend && (
-            <div className={cn('mt-2 flex items-center gap-1 text-xs font-medium', trend.up ? 'text-emerald-600' : 'text-red-500')}>
-              {trend.up ? <TrendingUp size={13} /> : <TrendingDown size={13} />}
-              {trend.value}
-            </div>
-          )}
-        </div>
-        <div className={cn('p-3 rounded-xl ml-3 flex-shrink-0', c.bg)}>
-          <Icon size={22} className={c.text} />
-        </div>
+    <div
+      className={cn(
+        'rounded-2xl p-6 border border-slate-200/90 bg-white shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 space-y-3',
+        className
+      )}
+    >
+      <div className="flex items-center justify-between">
+        <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">{title}</p>
+        {Icon ? (
+          <div className={cn('p-2.5 rounded-xl border flex items-center justify-center', c.bg)}>
+            <Icon size={18} />
+          </div>
+        ) : badge ? (
+          <Badge variant={badgeVariant}>{badge}</Badge>
+        ) : null}
       </div>
+
+      <div className="space-y-1">
+        <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-mono">{value}</div>
+        {subtitle && <p className="text-xs text-slate-500 font-medium">{subtitle}</p>}
+      </div>
+
+      {trend && (
+        <div className="flex items-center gap-1.5 text-xs font-bold pt-1">
+          {trend.up ? (
+            <span className="text-emerald-700 flex items-center gap-1">
+              <TrendingUp size={14} />
+              <span>+{trend.value}</span>
+            </span>
+          ) : (
+            <span className="text-red-700 flex items-center gap-1">
+              <TrendingDown size={14} />
+              <span>-{trend.value}</span>
+            </span>
+          )}
+          <span className="text-slate-500 font-normal">vs. mês anterior</span>
+        </div>
+      )}
     </div>
   );
 }

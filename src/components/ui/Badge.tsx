@@ -3,34 +3,37 @@ import { cn } from '../../utils/format';
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'green' | 'yellow' | 'red' | 'blue' | 'purple' | 'gray' | 'cyan' | 'amber' | 'emerald';
-  size?: 'sm' | 'md';
+  variant?: 'green' | 'emerald' | 'yellow' | 'amber' | 'red' | 'blue' | 'purple' | 'gray' | 'slate' | 'cyan';
+  size?: 'sm' | 'md' | 'lg';
   className?: string;
+  icon?: React.ElementType;
 }
 
 const variants: Record<string, string> = {
-  green: 'bg-emerald-100 text-emerald-900 border border-emerald-300 font-semibold',
-  emerald: 'bg-emerald-100 text-emerald-900 border border-emerald-300 font-semibold',
-  yellow: 'bg-amber-100 text-amber-900 border border-amber-300 font-semibold',
-  amber: 'bg-amber-100 text-amber-900 border border-amber-300 font-semibold',
-  red: 'bg-red-100 text-red-900 border border-red-300 font-semibold',
-  blue: 'bg-blue-100 text-blue-900 border border-blue-300 font-semibold',
-  purple: 'bg-purple-100 text-purple-900 border border-purple-300 font-semibold',
-  gray: 'bg-slate-200 text-slate-900 border border-slate-300 font-semibold',
-  cyan: 'bg-cyan-100 text-cyan-900 border border-cyan-300 font-semibold',
+  blue: 'bg-blue-50/90 text-blue-800 border-blue-200/90 font-bold',
+  green: 'bg-emerald-50/90 text-emerald-800 border-emerald-200/90 font-bold',
+  emerald: 'bg-emerald-50/90 text-emerald-800 border-emerald-200/90 font-bold',
+  yellow: 'bg-amber-50/90 text-amber-800 border-amber-200/90 font-bold',
+  amber: 'bg-amber-50/90 text-amber-800 border-amber-200/90 font-bold',
+  red: 'bg-red-50/90 text-red-800 border-red-200/90 font-bold',
+  purple: 'bg-purple-50/90 text-purple-800 border-purple-200/90 font-bold',
+  gray: 'bg-slate-100 text-slate-700 border-slate-200 font-bold',
+  slate: 'bg-slate-100 text-slate-700 border-slate-200 font-bold',
+  cyan: 'bg-cyan-50/90 text-cyan-800 border-cyan-200/90 font-bold',
 };
 
 const sizes = {
-  sm: 'px-2 py-0.5 text-xs',
-  md: 'px-2.5 py-1 text-sm',
+  sm: 'px-2.5 py-0.5 text-[11px]',
+  md: 'px-3 py-1 text-xs',
+  lg: 'px-3.5 py-1.5 text-sm',
 };
 
-export default function Badge({ children, variant = 'gray', size = 'sm', className = '' }: BadgeProps) {
+export default function Badge({ children, variant = 'gray', size = 'sm', className = '', icon: Icon }: BadgeProps) {
   const badgeStyle = variants[variant] || variants.gray;
   return (
-    <span className={cn('inline-flex items-center gap-1 font-medium rounded-full', badgeStyle, sizes[size], className)}>
+    <span className={cn('inline-flex items-center gap-1.5 rounded-full border shadow-2xs font-semibold tracking-wide whitespace-nowrap', badgeStyle, sizes[size], className)}>
+      {Icon && <Icon size={12} className="flex-shrink-0" />}
       {children}
     </span>
   );
 }
-
