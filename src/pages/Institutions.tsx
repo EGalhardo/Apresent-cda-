@@ -139,13 +139,13 @@ export default function Institutions() {
                   value={search}
                   onChange={e => setSearch(e.target.value)}
                   placeholder="Pesquisar..."
-                  className="pl-9 pr-3 py-2 text-xs sm:text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 w-36 sm:w-44"
+                  className="pl-9 pr-3 py-2 text-xs sm:text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 w-36 sm:w-44"
                 />
               </div>
               <select
                 value={filterStatus}
                 onChange={e => setFilterStatus(e.target.value)}
-                className="py-2 px-3 text-xs sm:text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="py-2 px-3 text-xs sm:text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="all">Todos os Estados</option>
                 <option value="prospect">Prospecto</option>
@@ -187,7 +187,7 @@ export default function Institutions() {
             </thead>
             <tbody className="divide-y divide-gray-50">
               {filtered.map(inst => (
-                <tr key={inst.id} className="hover:bg-gray-50 transition-colors">
+                <tr key={inst.id} className="hover:bg-blue-50/30 transition-colors">
                   <td className="px-5 py-3.5">
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">

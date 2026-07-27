@@ -93,14 +93,14 @@ export default function RevenueProjectionsPage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 bg-slate-50 p-1.5 rounded-2xl border border-slate-200 shadow-2xs">
+          <div className="flex items-center gap-2 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-2xs">
             <button
               onClick={() => {
                 setAdjustedMonth1(true);
                 addToast('Projeção actualizada: Valor corrigido Mês 1 (500.000 AOA)', 'success');
               }}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
-                adjustedMonth1 ? 'bg-blue-600 text-white border-blue-700 shadow-2xs' : 'border-transparent text-slate-700 hover:bg-slate-200/60'
+                adjustedMonth1 ? 'bg-blue-600 text-white border-blue-700 shadow-2xs' : 'border-transparent text-slate-700 hover:bg-slate-100'
               }`}
             >
               Com Ajuste Crítico (500k)
@@ -111,7 +111,7 @@ export default function RevenueProjectionsPage() {
                 addToast('Aviso: Projeção original sem ajuste de arranque piloto (2M AOA)', 'warning');
               }}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
-                !adjustedMonth1 ? 'bg-amber-600 text-white border-amber-700 shadow-2xs' : 'border-transparent text-slate-700 hover:bg-slate-200/60'
+                !adjustedMonth1 ? 'bg-amber-600 text-white border-amber-700 shadow-2xs' : 'border-transparent text-slate-700 hover:bg-slate-100'
               }`}
             >
               Sem Ajuste (2M)
@@ -181,12 +181,12 @@ export default function RevenueProjectionsPage() {
 
       {/* Table */}
       <Card padding={false} className="overflow-hidden">
-        <div className="p-6 bg-slate-50 border-b border-slate-200">
+        <div className="p-6 bg-white border-b border-slate-200">
           <SectionHeader title="Demonstrativo Mensal Discriminado (Mês 1 ao Mês 12)" subtitle="Valores de receita, OPEX e margem líquida por mês de atividade" />
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-xs text-left">
-            <thead className="bg-slate-100 text-slate-800 font-extrabold uppercase tracking-wider">
+            <thead className="bg-white text-slate-800 font-extrabold uppercase tracking-wider border-b border-slate-200">
               <tr>
                 <th className="px-5 py-4">Período</th>
                 <th className="px-5 py-4">Receita Mensal</th>
@@ -197,7 +197,7 @@ export default function RevenueProjectionsPage() {
             </thead>
             <tbody className="divide-y divide-slate-100 font-medium text-slate-800">
               {projectionsData.map((item, idx) => (
-                <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
+                <tr key={idx} className="hover:bg-blue-50/30 transition-colors">
                   <td className="px-5 py-4 font-bold text-slate-900">{item.month}</td>
                   <td className="px-5 py-4 font-bold text-blue-700 font-mono">{formatAOA(item.receita)}</td>
                   <td className="px-5 py-4 font-bold text-amber-700 font-mono">{formatAOA(item.opex)}</td>

@@ -97,7 +97,7 @@ export default function Settings() {
             { key: 'notifications', label: 'Notificações de Segurança', desc: 'Alertas em tempo real sobre actividade suspeita', badge: null },
             { key: 'autoBackup', label: 'Backup Automático', desc: 'Cópia de segurança diária dos dados financeiros', badge: 'Activo' },
           ].map(item => (
-            <div key={item.key} className="flex items-center justify-between p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
+            <div key={item.key} className="flex items-center justify-between p-4 rounded-xl bg-white border border-gray-100 hover:bg-blue-50/30 transition-colors">
               <div>
                 <div className="flex items-center gap-2">
                   <p className="text-sm font-medium text-gray-800">{item.label}</p>
@@ -140,7 +140,7 @@ export default function Settings() {
             { label: 'Receita Projectada', value: formatAOA(178000000, true) },
             { label: 'Margem Operacional', value: formatAOA(131800000, true) },
           ].map(item => (
-            <div key={item.label} className="bg-gray-50 rounded-xl p-3">
+            <div key={item.label} className="bg-white border border-gray-100 rounded-xl p-3">
               <p className="text-xs text-gray-400 mb-0.5">{item.label}</p>
               <p className="font-semibold text-gray-800 text-xs sm:text-sm">{item.value}</p>
             </div>

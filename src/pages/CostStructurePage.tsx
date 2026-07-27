@@ -133,7 +133,7 @@ export default function CostStructurePage() {
               <div className="space-y-3 pt-1">
                 {opexData.map(item => (
                   <Tooltip key={item.name} title={item.name} purpose={item.desc} meaning={`Valor mensal: ${formatAOA(item.value)}`} className="w-full">
-                    <div className="flex items-center justify-between p-3.5 bg-slate-50/80 rounded-2xl border border-slate-200/80 hover:bg-white hover:shadow-2xs transition-all">
+                    <div className="flex items-center justify-between p-3.5 bg-white rounded-2xl border border-slate-200/80 hover:shadow-2xs transition-all">
                       <div className="flex items-center gap-3">
                         <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: item.color }} />
                         <div>
@@ -153,12 +153,12 @@ export default function CostStructurePage() {
 
       {activeTab === 'expenses' && (
         <Card padding={false} className="overflow-hidden">
-          <div className="p-6 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+          <div className="p-6 bg-white border-b border-slate-200 flex items-center justify-between">
             <SectionHeader title="Registo de Despesas Efectivas" subtitle="Registo de custos incorridos no sistema" />
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-xs text-left">
-              <thead className="bg-slate-100 text-slate-800 font-extrabold uppercase tracking-wider">
+              <thead className="bg-white text-slate-800 font-extrabold uppercase tracking-wider border-b border-slate-200">
                 <tr>
                   <th className="px-5 py-4">Descrição</th>
                   <th className="px-5 py-4">Categoria</th>
@@ -176,7 +176,7 @@ export default function CostStructurePage() {
                   </tr>
                 ) : (
                   expenses.map(exp => (
-                    <tr key={exp.id} className="hover:bg-slate-50/80 transition-colors">
+                    <tr key={exp.id} className="hover:bg-blue-50/30 transition-colors">
                       <td className="px-5 py-4 font-bold text-slate-900">{exp.description}</td>
                       <td className="px-5 py-4"><Badge variant="blue">{exp.category}</Badge></td>
                       <td className="px-5 py-4 font-bold text-slate-900 font-mono">{formatAOA(exp.amount)}</td>
@@ -193,12 +193,12 @@ export default function CostStructurePage() {
 
       {activeTab === 'employees' && (
         <Card padding={false} className="overflow-hidden">
-          <div className="p-6 bg-slate-50 border-b border-slate-200">
+          <div className="p-6 bg-white border-b border-slate-200">
             <SectionHeader title="Recursos Humanos & Colaboradores" subtitle="Equipa técnica e operacional registada" />
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-xs text-left">
-              <thead className="bg-slate-100 text-slate-800 font-extrabold uppercase tracking-wider">
+              <thead className="bg-white text-slate-800 font-extrabold uppercase tracking-wider border-b border-slate-200">
                 <tr>
                   <th className="px-5 py-4">Nome</th>
                   <th className="px-5 py-4">Cargo / Função</th>
@@ -215,7 +215,7 @@ export default function CostStructurePage() {
                   </tr>
                 ) : (
                   employees.map(emp => (
-                    <tr key={emp.id} className="hover:bg-slate-50/80 transition-colors">
+                    <tr key={emp.id} className="hover:bg-blue-50/30 transition-colors">
                       <td className="px-5 py-4 font-bold text-slate-900">{emp.name}</td>
                       <td className="px-5 py-4"><Badge variant="purple">{emp.role}</Badge></td>
                       <td className="px-5 py-4 font-bold text-emerald-700 font-mono">{formatAOA(emp.salary)}</td>

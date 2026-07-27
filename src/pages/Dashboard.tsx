@@ -219,7 +219,7 @@ export default function Dashboard() {
           </CardHeader>
           <div className="space-y-2">
             {recentInvoices.map(inv => (
-              <div key={inv.id} className="flex items-center justify-between p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200">
+              <div key={inv.id} className="flex items-center justify-between p-3 rounded-xl bg-white hover:bg-blue-50/30 transition-colors border border-gray-200">
                 <div className="flex items-center gap-3">
                   {inv.status === 'paid' ? (
                     <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0" />

@@ -130,7 +130,7 @@ export default function StrategicGoalsPage() {
 
       {/* Vertical List */}
       <Card padding={false} className="overflow-hidden">
-        <div className="p-4 bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-wider grid grid-cols-12 gap-4 items-center">
+        <div className="p-4 bg-white border-b border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-wider grid grid-cols-12 gap-4 items-center">
           <div className="col-span-12 md:col-span-6">Título & Descrição da Meta</div>
           <div className="col-span-6 md:col-span-2 text-left md:text-center">Estado</div>
           <div className="col-span-6 md:col-span-4">Progresso & Alvo</div>
@@ -145,7 +145,7 @@ export default function StrategicGoalsPage() {
               meaning={`Progresso previsto de ${goal.progress}% com meta quantitativa de ${goal.targetValue}`}
               className="w-full"
             >
-              <div className="p-5 sm:p-6 hover:bg-slate-50/80 transition-colors grid grid-cols-12 gap-4 items-center">
+              <div className="p-5 sm:p-6 hover:bg-blue-50/30 transition-colors grid grid-cols-12 gap-4 items-center">
                 {/* Title & Description with Sequential Number */}
                 <div className="col-span-12 md:col-span-6 space-y-1.5">
                   <div className="flex items-center gap-2.5 flex-wrap">

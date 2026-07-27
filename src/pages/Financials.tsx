@@ -106,7 +106,7 @@ export default function Financials() {
           {/* Monthly table */}
           <div className="mt-4 border border-gray-100 rounded-xl overflow-hidden">
             <table className="w-full text-xs">
-              <thead className="bg-gray-50">
+              <thead className="bg-white border-b border-gray-100">
                 <tr>
                   <th className="text-left px-3 py-2 text-gray-400 font-semibold">Mês</th>
                   <th className="text-right px-3 py-2 text-gray-400 font-semibold">Receita</th>
@@ -118,7 +118,7 @@ export default function Financials() {
                 {revenueProjection.map(m => {
                   const net = m.projected - opexMonthly;
                   return (
-                    <tr key={m.month} className="hover:bg-gray-50">
+                    <tr key={m.month} className="hover:bg-blue-50/30">
                       <td className="px-3 py-2 font-medium text-gray-700">{m.month}</td>
                       <td className="px-3 py-2 text-right text-gray-900 font-semibold">{formatAOA(m.projected, true)}</td>
                       <td className="px-3 py-2 text-right text-amber-600">{formatAOA(opexMonthly, true)}</td>
@@ -154,7 +154,7 @@ export default function Financials() {
             </div>
             <div className="mt-3 space-y-2">
               {scenarioData.map((s, i) => (
-                <div key={s.scenario} className={`p-3 rounded-xl border ${i === 1 ? 'border-blue-200 bg-blue-50' : 'border-gray-100 bg-gray-50'}`}>
+                <div key={s.scenario} className={`p-3 rounded-xl border ${i === 1 ? 'border-blue-200 bg-blue-50' : 'border-gray-100 bg-white'}`}>
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="text-xs font-bold text-gray-800">{s.scenario}</span>
@@ -210,7 +210,7 @@ export default function Financials() {
           {trancheData.map((t, i) => (
             <div key={t.tranche} className="relative">
               <div className="absolute top-5 right-full w-full h-0.5 bg-gray-200 hidden md:block" style={{ display: i === 0 ? 'none' : undefined }} />
-              <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100 hover:border-blue-200 transition-colors">
+              <div className="bg-white rounded-2xl p-5 border border-gray-200 hover:border-blue-200 transition-colors">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold" style={{ backgroundColor: t.color }}>
                     {i + 1}

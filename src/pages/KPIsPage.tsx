@@ -140,7 +140,7 @@ export default function KPIsPage() {
           <div className="space-y-4">
             {mainProgressKpis.map((item) => (
               <Tooltip key={item.id} title={item.title} purpose={item.actualText} meaning={item.meaning} className="w-full">
-                <div className="p-4 bg-slate-50/80 rounded-2xl border border-slate-200/80 space-y-2">
+                <div className="p-4 bg-white rounded-2xl border border-slate-200/80 space-y-2">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-extrabold text-slate-900">{item.title}</span>
                     <span className="font-bold text-slate-600 font-mono">{item.actualText}</span>

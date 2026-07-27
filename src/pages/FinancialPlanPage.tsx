@@ -127,7 +127,7 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
             </div>
 
             {/* Presentation Talking Points */}
-            <div className="bg-slate-50 border border-slate-200/90 p-5 rounded-2xl space-y-3">
+            <div className="bg-white border border-slate-200/90 p-5 rounded-2xl space-y-3">
               <p className="text-xs font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
                 <Sparkles size={16} className="text-blue-600" />
                 <span>Pontos Chave para a Apresentação</span>
@@ -307,12 +307,12 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
 
           {/* Clean High-Contrast Table */}
           <Card padding={false} className="overflow-hidden">
-            <div className="p-6 bg-slate-50 border-b border-slate-200">
+            <div className="p-6 bg-white border-b border-slate-200">
               <SectionHeader title="Tabela Discriminada de Tarifários" subtitle="Resumo das taxas de adesão e licenças recorrentes por segmento institucional" />
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left">
-                <thead className="bg-slate-100 text-slate-800 font-extrabold uppercase tracking-wider">
+                <thead className="bg-white text-slate-800 font-extrabold uppercase tracking-wider border-b border-slate-200">
                   <tr>
                     <th className="px-5 py-4">Segmento de Cliente</th>
                     <th className="px-5 py-4">Taxa de Adesão / Setup</th>
@@ -321,25 +321,25 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
                   </tr>
                 </thead>
                 <tbody className="font-medium text-slate-800 divide-y divide-slate-100">
-                  <tr className="hover:bg-slate-50/80 transition-colors">
+                  <tr className="hover:bg-blue-50/30 transition-colors">
                     <td className="px-5 py-4 font-bold text-slate-900">Institutos Públicos (ex: INAPEM)</td>
                     <td className="px-5 py-4 font-bold text-blue-700">10.000.000 AOA</td>
                     <td className="px-5 py-4 font-bold text-emerald-700">750.000 AOA / mês</td>
                     <td className="px-5 py-4 text-slate-600 text-justify">Caixas digitais ilimitadas, 5.000 notificações/mês</td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80 transition-colors">
+                  <tr className="hover:bg-blue-50/30 transition-colors">
                     <td className="px-5 py-4 font-bold text-slate-900">Ministérios & Adm. Central</td>
                     <td className="px-5 py-4 font-bold text-blue-700">10.000.000 AOA</td>
                     <td className="px-5 py-4 font-bold text-emerald-700">1.200.000 AOA / mês</td>
                     <td className="px-5 py-4 text-slate-600 text-justify">Acesso via API, suporte prioritário 24/7</td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80 transition-colors">
+                  <tr className="hover:bg-blue-50/30 transition-colors">
                     <td className="px-5 py-4 font-bold text-slate-900">Organismos Fiscais (AGT)</td>
                     <td className="px-5 py-4 font-bold text-blue-700">10.000.000 AOA</td>
                     <td className="px-5 py-4 font-bold text-emerald-700">1.500.000 AOA / mês</td>
                     <td className="px-5 py-4 text-slate-600 text-justify">Notificações fiscais massivas e arquivo seguro</td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80 transition-colors">
+                  <tr className="hover:bg-blue-50/30 transition-colors">
                     <td className="px-5 py-4 font-bold text-slate-900">Bancos e Inst. Financeiras</td>
                     <td className="px-5 py-4 font-bold text-blue-700">10.000.000 AOA</td>
                     <td className="px-5 py-4 font-bold text-emerald-700">2.000.000 AOA / mês</td>

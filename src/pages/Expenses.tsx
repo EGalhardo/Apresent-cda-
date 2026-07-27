@@ -170,10 +170,10 @@ export default function Expenses() {
             <div className="relative">
               <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
               <input value={search} onChange={e => setSearch(e.target.value)}
-                placeholder="Pesquisar..." className="pl-9 pr-3 py-2 text-xs sm:text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 w-36 sm:w-44" />
+                placeholder="Pesquisar..." className="pl-9 pr-3 py-2 text-xs sm:text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 w-36 sm:w-44" />
             </div>
             <select value={filterCat} onChange={e => setFilterCat(e.target.value)}
-              className="py-2 px-3 text-xs sm:text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              className="py-2 px-3 text-xs sm:text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="all">Todas as Categorias</option>
               {Object.entries(categoryLabel).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
             </select>
@@ -201,7 +201,7 @@ export default function Expenses() {
             </thead>
             <tbody className="divide-y divide-gray-50">
               {filtered.map(exp => (
-                <tr key={exp.id} className="hover:bg-gray-50 transition-colors">
+                <tr key={exp.id} className="hover:bg-blue-50/30 transition-colors">
                   <td className="px-4 py-3.5">
                     <p className="text-sm font-medium text-gray-900">{exp.description}</p>
                   </td>

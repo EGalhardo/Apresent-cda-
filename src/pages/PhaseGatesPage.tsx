@@ -166,7 +166,7 @@ export default function PhaseGatesPage() {
               {/* Grid Content */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-700 font-medium">
                 {/* Criteria */}
-                <div className="space-y-2 bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
+                <div className="space-y-2 bg-white p-4 rounded-2xl border border-slate-200/80">
                   <p className="font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
                     <CheckSquare size={16} className="text-blue-600" />
                     <span>Critérios de Aprovação Rígidos</span>
@@ -182,7 +182,7 @@ export default function PhaseGatesPage() {
                 </div>
 
                 {/* Milestones */}
-                <div className="space-y-2 bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
+                <div className="space-y-2 bg-white p-4 rounded-2xl border border-slate-200/80">
                   <p className="font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
                     <Target size={16} className="text-emerald-600" />
                     <span>Marcos Principais (Milestones)</span>
@@ -198,7 +198,7 @@ export default function PhaseGatesPage() {
                 </div>
 
                 {/* Objectives */}
-                <div className="space-y-2 bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
+                <div className="space-y-2 bg-white p-4 rounded-2xl border border-slate-200/80">
                   <p className="font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
                     <Award size={16} className="text-purple-600" />
                     <span>Objectivos da Etapa</span>
@@ -214,7 +214,7 @@ export default function PhaseGatesPage() {
                 </div>
 
                 {/* Deliverables */}
-                <div className="space-y-2 bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
+                <div className="space-y-2 bg-white p-4 rounded-2xl border border-slate-200/80">
                   <p className="font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
                     <FileText size={16} className="text-amber-600" />
                     <span>Entregáveis Documentais</span>

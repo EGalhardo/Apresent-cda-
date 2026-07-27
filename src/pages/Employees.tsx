@@ -177,11 +177,11 @@ export default function Employees() {
             </div>
 
             <div className="mt-4 grid grid-cols-2 gap-3">
-              <div className="bg-gray-50 rounded-xl p-3">
+              <div className="bg-white border border-gray-100 rounded-xl p-3">
                 <p className="text-xs text-gray-400 mb-0.5">Remuneração</p>
                 <p className="text-sm font-bold text-gray-900">{formatAOA(emp.salary, true)}/mês</p>
               </div>
-              <div className="bg-gray-50 rounded-xl p-3">
+              <div className="bg-white border border-gray-100 rounded-xl p-3">
                 <p className="text-xs text-gray-400 mb-0.5">Estado</p>
                 <Badge variant={emp.status === 'active' ? 'green' : 'red'}>
                   {emp.status === 'active' ? 'Activo' : 'Inactivo'}

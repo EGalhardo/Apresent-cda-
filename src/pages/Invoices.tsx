@@ -165,10 +165,10 @@ export default function Invoices() {
             <div className="relative">
               <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
               <input value={search} onChange={e => setSearch(e.target.value)}
-                placeholder="Pesquisar..." className="pl-9 pr-3 py-2 text-xs sm:text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 w-36 sm:w-44" />
+                placeholder="Pesquisar..." className="pl-9 pr-3 py-2 text-xs sm:text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 w-36 sm:w-44" />
             </div>
             <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)}
-              className="py-2 px-3 text-xs sm:text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              className="py-2 px-3 text-xs sm:text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="all">Todos os Estados</option>
               <option value="paid">Pagos</option>
               <option value="pending">Pendentes</option>
@@ -201,7 +201,7 @@ export default function Invoices() {
               {filtered.map(inv => {
                 const Icon = statusIcon[inv.status];
                 return (
-                  <tr key={inv.id} className="hover:bg-gray-50 transition-colors">
+                  <tr key={inv.id} className="hover:bg-blue-50/30 transition-colors">
                     <td className="px-4 py-3.5">
                       <span className="text-sm font-mono font-semibold text-gray-700">{inv.id}</span>
                     </td>
