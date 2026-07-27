@@ -240,19 +240,8 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
                         </button>
                       );
 
-                      // Tooltip wrapper
-                      return (
-                        <Tooltip
-                          key={item.id}
-                          title={item.label}
-                          purpose={item.purpose}
-                          meaning={item.meaning}
-                          position={collapsed ? 'right' : 'right'}
-                          className="w-full"
-                        >
-                          {navButton}
-                        </Tooltip>
-                      );
+                      // Return navigation button directly without Tooltip popup
+                      return navButton;
                     })}
                   </div>
                 )}
