@@ -173,29 +173,36 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
                   <button
                     onClick={() => toggleGroup(group.id)}
                     className={cn(
-                      'w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all border',
-                      isGroupExpanded
-                        ? 'bg-slate-100 text-blue-800 border-slate-300'
-                        : hasActiveChild
-                        ? 'text-blue-800 border-transparent hover:bg-slate-100'
-                        : 'text-slate-800 border-transparent hover:bg-slate-100 hover:text-slate-900'
+                      'w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all border',
+                      hasActiveChild
+                        ? 'bg-blue-600 text-white border-blue-700 shadow-xs hover:bg-blue-700'
+                        : isGroupExpanded
+                        ? 'bg-slate-100 text-slate-900 border-slate-200 hover:bg-slate-200/80'
+                        : 'text-slate-700 border-transparent hover:bg-slate-100 hover:text-slate-900'
                     )}
                   >
                     <div className="flex items-center gap-2.5">
-                      <group.icon size={16} className={hasActiveChild ? 'text-blue-700' : 'text-slate-700'} />
-                      <span>{group.title}</span>
+                      <group.icon size={16} className={hasActiveChild ? 'text-white' : 'text-slate-700'} />
+                      <span className={hasActiveChild ? 'text-white' : undefined}>{group.title}</span>
                     </div>
-                    {isGroupExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                    <div className={hasActiveChild ? 'text-white' : 'text-slate-500'}>
+                      {isGroupExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                    </div>
                   </button>
                 ) : (
-                  <div className="text-center py-2 text-[10px] uppercase font-bold text-slate-600 tracking-wider">
+                  <div
+                    className={cn(
+                      'text-center py-2 text-[10px] uppercase font-extrabold tracking-wider rounded-lg mx-1 transition-all',
+                      hasActiveChild ? 'bg-blue-600 text-white shadow-2xs' : 'text-slate-600'
+                    )}
+                  >
                     {group.id === 'apresentacao' ? 'APR' : 'FIN'}
                   </div>
                 )}
 
                 {/* Group Items (Always visible if collapsed, or expanded if not collapsed) */}
                 {(collapsed || isGroupExpanded) && (
-                  <div className={cn('space-y-0.5', !collapsed && 'pl-2 border-l-2 border-slate-300 my-1')}>
+                  <div className={cn('space-y-0.5', !collapsed && 'pl-2 border-l-2 border-blue-200/80 my-1')}>
                     {group.items.map(item => {
                       const isActive = currentPage === item.id;
                       const Icon = item.icon;
@@ -207,8 +214,8 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
                           className={cn(
                             'w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all duration-150 relative group border',
                             isActive
-                              ? 'bg-white text-blue-700 font-extrabold border-blue-300 shadow-sm'
-                              : 'text-slate-800 border-transparent hover:bg-slate-100 hover:text-blue-700',
+                              ? 'bg-blue-50 text-blue-700 font-extrabold border-blue-200 shadow-2xs'
+                              : 'text-slate-700 border-transparent hover:bg-slate-100 hover:text-blue-700',
                             collapsed && 'justify-center px-0 py-3'
                           )}
                         >
@@ -216,8 +223,8 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
                             className={cn(
                               'w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform duration-200 group-hover:scale-110',
                               isActive
-                                ? 'bg-white text-blue-700 border border-slate-200 shadow-xs'
-                                : 'text-slate-700 group-hover:text-blue-700'
+                                ? 'bg-blue-600 text-white shadow-2xs'
+                                : 'text-slate-600 group-hover:text-blue-700'
                             )}
                           >
                             <Icon size={17} />
