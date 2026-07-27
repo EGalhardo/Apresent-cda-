@@ -52,7 +52,7 @@ interface MenuGroup {
 const menuGroups: MenuGroup[] = [
   {
     id: 'apresentacao',
-    title: 'Apresentação',
+    title: 'Plataforma',
     icon: Presentation,
     items: [
       { id: 'intro', label: 'Introdução', icon: Compass, purpose: 'Visão geral e contexto do Correio Digital Angola', meaning: 'Apresentação institucional da plataforma unificada de mensagens oficiais do Estado' },
@@ -145,7 +145,7 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
             {!collapsed && (
               <div className="min-w-0">
                 <span className="text-xs font-extrabold text-slate-900 tracking-tight block truncate">Correio Digital Angola</span>
-                <span className="text-[11px] text-blue-700 font-bold block truncate">Plano Executivo GovTech</span>
+                <span className="text-[11px] text-blue-700 font-bold block truncate">Apresentação Interativa</span>
               </div>
             )}
           </div>

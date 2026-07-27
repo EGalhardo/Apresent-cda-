@@ -12,7 +12,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({
   badge,
-  secondaryBadge = 'Plano Executivo GovTech',
+  secondaryBadge = 'Apresentação Interativa',
   title,
   description,
   action,
