@@ -253,7 +253,7 @@ export default function Dashboard() {
           </div>
           <div>
             <p className="text-sm font-semibold text-blue-800">Piloto INAPEM Previsto</p>
-            <p className="text-xs text-blue-600 mt-0.5">Phase Gate 1 em planeamento. Preparação para o piloto em curso.</p>
+            <p className="text-xs text-blue-600 mt-0.5">Marco de Controlo 1 em planeamento. Preparação para o piloto em curso.</p>
           </div>
         </div>
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-start gap-3">

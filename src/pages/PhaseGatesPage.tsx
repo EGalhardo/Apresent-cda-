@@ -130,8 +130,8 @@ export default function PhaseGatesPage() {
       {/* Page Header */}
       <PageHeader
         badge="Governança do Projecto"
-        secondaryBadge="Gates de Controlo Rígido"
-        title="Etapas de Transição (Phase Gates)"
+        secondaryBadge="Marcos de Controlo Rígido"
+        title="Etapas de Transição (Marcos de Controlo)"
         description="O plano de execução encontra-se dividido em fases de validação técnica, operacional e comercial. Cada etapa possui critérios objetivos de desempenho que condicionam a passagem para a fase seguinte e a respetiva libertação das tranches de financiamento, assegurando uma implementação controlada, transparente e orientada para resultados."
         icon={ShieldCheck}
       />

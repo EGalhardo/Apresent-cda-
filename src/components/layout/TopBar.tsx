@@ -19,7 +19,7 @@ const pageTitles: Record<Page, string> = {
   cost_structure: 'Plano Financeiro — Estrutura de Custos',
   initial_investment: 'Plano Financeiro — Investimento Inicial',
   revenue_projections: 'Plano Financeiro — Receitas & Projeções',
-  phase_gates: 'Plano Financeiro — Phase Gates & Riscos',
+  phase_gates: 'Plano Financeiro — Marcos de Controlo & Riscos',
   kpis: 'Plano Financeiro — KPIs Financeiros',
   commercial_kpis: 'Plano Financeiro — KPIs Comerciais',
   growth_strategy: 'Plano Financeiro — Estratégia de Crescimento',
@@ -79,7 +79,7 @@ export default function TopBar({ currentPage, onNavigate, onToggleMobileMenu }: 
 
   // System Notifications
   const alerts = [
-    { id: '1', title: 'Piloto INAPEM — Phase Gate 1', desc: 'Testes de cibersegurança e emissão de parecer em progresso.', type: 'info', date: 'Hoje' },
+    { id: '1', title: 'Piloto INAPEM — Marco de Controlo 1', desc: 'Testes de cibersegurança e emissão de parecer em progresso.', type: 'info', date: 'Hoje' },
     { id: '2', title: 'Gatilho Salarial (Mês 6)', desc: `Meta de MRR: ${formatAOA(settings.mrrTrigger, true)}. Tabela remuneratória será reajustada.`, type: 'warning', date: 'Mês 6' },
     { id: '3', title: 'Facturas Pendentes', desc: `${invoices.filter(i => i.status === 'pending').length} facturas aguardando liquidação.`, type: 'info', date: 'Facturação' },
   ];

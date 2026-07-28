@@ -30,7 +30,7 @@ export const initialStrategicGoals: StrategicGoal[] = [
   {
     id: 'goal-02',
     title: 'Auditoria de Cibersegurança & Emissão do Parecer do INAPEM',
-    description: 'Previsão de realização de testes de penetração, encriptação AES-256 e emissão do parecer oficial de conformidade pelo INAPEM (Phase Gate 1).',
+    description: 'Previsão de realização de testes de penetração, encriptação AES-256 e emissão do parecer oficial de conformidade pelo INAPEM (Marco de Controlo 1).',
     status: 'in_progress',
     progress: 70,
     targetValue: 'Gate 1 Signoff',

@@ -121,7 +121,7 @@ export default function RevenueProjectionsPage() {
 
         <div className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed space-y-2 text-justify">
           <p>
-            <strong className="text-slate-900 font-bold">Justificação Técnica e Comercial:</strong> No Mês 1 de operação, o Correio Digital Angola executa a instalação do Centro Operacional, testes de penetração e a homologação do piloto no INAPEM. Cobrar a totalidade da mensalidade SaaS de 2.000.000 AOA antes do fecho do Phase Gate 1 criava uma inconsistência comercial.
+            <strong className="text-slate-900 font-bold">Justificação Técnica e Comercial:</strong> No Mês 1 de operação, o Correio Digital Angola executa a instalação do Centro Operacional, testes de penetração e a homologação do piloto no INAPEM. Cobrar a totalidade da mensalidade de 2.000.000 AOA antes do fecho do Marco de Controlo 1 criava uma inconsistência comercial.
           </p>
           <p>
             A receita do Mês 1 foi assim ajustada para <strong className="text-blue-700 font-extrabold">500.000 AOA</strong> (correspondente à taxa de preparação inicial e testes do protocolo), permitindo que a cobrança integral SaaS arranque com o parecer favorável no Mês 2.

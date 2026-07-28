@@ -338,7 +338,7 @@ export const kpiTargets = [
 export const phaseGates = [
   {
     id: 1,
-    name: 'Phase Gate 1',
+    name: 'Marco de Controlo 1',
     from: 'Piloto INAPEM',
     to: 'Expansão B2G',
     condition: 'Conclusão dos testes de cibersegurança e emissão do parecer de validação pelo INAPEM',
@@ -346,7 +346,7 @@ export const phaseGates = [
   },
   {
     id: 2,
-    name: 'Phase Gate 2',
+    name: 'Marco de Controlo 2',
     from: 'Expansão B2G',
     to: 'Escala Nacional',
     condition: 'Atingimento do Break-Even: MRR ≥ OPEX (3.850.000 AOA/mês)',
@@ -354,7 +354,7 @@ export const phaseGates = [
   },
   {
     id: 3,
-    name: 'Phase Gate 3',
+    name: 'Marco de Controlo 3',
     from: 'Escala Nacional',
     to: 'Expansão Internacional (CPLP/SADC)',
     condition: 'Sustentabilidade financeira plena e cobertura nacional confirmada',

@@ -499,9 +499,9 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
               <div className="p-3 bg-emerald-50 text-emerald-700 rounded-2xl w-fit border border-emerald-100">
                 <ShieldCheck size={24} />
               </div>
-              <CardTitle>Retenção de 100% (Churn Nulo)</CardTitle>
+              <CardTitle>Retenção de 100% (Cancelamentos Nulos)</CardTitle>
               <p className="text-xs text-slate-600 leading-relaxed font-medium text-justify">
-                Uma vez integrado no ecossistema estatal, o Correio Digital torna-se a via oficial de comunicação legal e administrativa. A taxa de cancelamento (churn) estimada é próxima de 0%.
+                Uma vez integrado no ecossistema estatal, o Correio Digital torna-se a via oficial de comunicação legal e administrativa. A taxa de cancelamento estimada é próxima de 0%.
               </p>
             </Card>
           </div>
@@ -516,7 +516,7 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
       const trancheData = [
         { name: 'Tranche 1 (40%)', amount: 13836000, color: '#2563eb', desc: 'Instalação & Centro Operacional' },
         { name: 'Tranche 2 (35%)', amount: 12106500, color: '#8b5cf6', desc: 'Mês 3 após relatório do Piloto' },
-        { name: 'Tranche 3 (25%)', amount: 8647500, color: '#10b981', desc: 'Mês 6 com KPIs do Phase Gate 1' },
+        { name: 'Tranche 3 (25%)', amount: 8647500, color: '#10b981', desc: 'Mês 6 com KPIs do Marco de Controlo 1' },
       ];
 
       return (
@@ -552,7 +552,7 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
               <Badge variant="emerald">Tranche 3 (25%)</Badge>
               <p className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">8.647.500 AOA</p>
               <p className="text-xs text-slate-600 font-medium text-justify">
-                Libertação no Mês 6 com atingimento dos KPIs de segurança e aprovação formal do Phase Gate 1.
+                Libertação no Mês 6 com atingimento dos KPIs de segurança e aprovação formal do Marco de Controlo 1.
               </p>
             </Card>
           </div>
