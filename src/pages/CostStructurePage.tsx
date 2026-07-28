@@ -7,6 +7,8 @@ import Tooltip from '../components/ui/Tooltip';
 import PageHeader from '../components/ui/PageHeader';
 import SectionHeader from '../components/ui/SectionHeader';
 import StatCard from '../components/ui/StatCard';
+import AnimatedChartWrapper from '../components/ui/AnimatedChartWrapper';
+import CountUp from '../components/ui/CountUp';
 import { useERP } from '../context/ERPContext';
 import { formatAOA } from '../utils/format';
 
@@ -114,17 +116,21 @@ export default function CostStructurePage() {
             <Card className="space-y-4">
               <SectionHeader title="Distribuição Percentual do OPEX" subtitle="Proporções das principais rubricas de custo operacional." />
               <div className="h-72 w-full pt-2">
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie data={opexData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={90} innerRadius={50} paddingAngle={4}>
-                      {opexData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.color} />
-                      ))}
-                    </Pie>
-                    <RechartsTooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
-                    <Legend wrapperStyle={{ fontSize: 11, fontWeight: 600 }} />
-                  </PieChart>
-                </ResponsiveContainer>
+                <AnimatedChartWrapper className="w-full h-full">
+                  {({ isAnimationActive, key }) => (
+                    <ResponsiveContainer width="100%" height="100%" key={key}>
+                      <PieChart>
+                        <Pie data={opexData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={90} innerRadius={50} paddingAngle={4} isAnimationActive={isAnimationActive} animationDuration={1500}>
+                          {opexData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={entry.color} />
+                          ))}
+                        </Pie>
+                        <RechartsTooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
+                        <Legend wrapperStyle={{ fontSize: 11, fontWeight: 600 }} />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  )}
+                </AnimatedChartWrapper>
               </div>
             </Card>
 
@@ -141,7 +147,7 @@ export default function CostStructurePage() {
                           <p className="text-[11px] text-slate-500 font-medium">{item.desc}</p>
                         </div>
                       </div>
-                      <span className="text-xs font-extrabold text-slate-900 font-mono">{formatAOA(item.value, true)}</span>
+                      <span className="text-xs font-extrabold text-slate-900 font-mono"><CountUp value={formatAOA(item.value, true)} /></span>
                     </div>
                   </Tooltip>
                 ))}

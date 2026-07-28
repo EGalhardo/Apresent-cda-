@@ -106,10 +106,10 @@ export default function KPIs() {
         })}
       </div>
 
-      {/* Phase Gates */}
+      {/* Marcos de Controlo */}
       <Card>
         <div className="flex items-center justify-between mb-5">
-          <CardTitle>Phase Gates — Critérios de Transição</CardTitle>
+          <CardTitle>Marcos de Controlo — Critérios de Transição</CardTitle>
           <Badge variant="blue">3 Fases</Badge>
         </div>
         <div className="space-y-4">

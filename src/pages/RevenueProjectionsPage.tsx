@@ -10,6 +10,8 @@ import Tooltip from '../components/ui/Tooltip';
 import PageHeader from '../components/ui/PageHeader';
 import SectionHeader from '../components/ui/SectionHeader';
 import StatCard from '../components/ui/StatCard';
+import AnimatedChartWrapper from '../components/ui/AnimatedChartWrapper';
+import CountUp from '../components/ui/CountUp';
 import { useERP } from '../context/ERPContext';
 import { formatAOA } from '../utils/format';
 
@@ -164,18 +166,22 @@ export default function RevenueProjectionsPage() {
           subtitle="Crescimento mensal das receitas e margem acumulada."
         />
         <div className="h-72 w-full pt-2">
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={projectionsData} margin={{ top: 10, right: 30, left: 10, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-              <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#475569', fontWeight: 600 }} axisLine={false} tickLine={false} />
-              <YAxis tickFormatter={v => formatAOA(v as number, true)} tick={{ fontSize: 11, fill: '#475569' }} axisLine={false} tickLine={false} width={80} />
-              <RechartsTooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
-              <Legend wrapperStyle={{ fontSize: 12, fontWeight: 600 }} />
-              <ReferenceLine y={opexMonthly} stroke="#f59e0b" strokeDasharray="3 3" label={{ value: 'OPEX (3.85M)', fill: '#f59e0b', fontSize: 11, fontWeight: 700 }} />
-              <Area type="monotone" dataKey="receita" name="Receita Mensal Projectada" stroke="#2563eb" fill="#3b82f6" fillOpacity={0.25} strokeWidth={2.5} />
-              <Area type="monotone" dataKey="net" name="Margem Operacional Líquida" stroke="#10b981" fill="#10b981" fillOpacity={0.15} strokeWidth={2} />
-            </AreaChart>
-          </ResponsiveContainer>
+          <AnimatedChartWrapper className="w-full h-full">
+            {({ isAnimationActive, key }) => (
+              <ResponsiveContainer width="100%" height="100%" key={key}>
+                <AreaChart data={projectionsData} margin={{ top: 10, right: 30, left: 10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                  <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#475569', fontWeight: 600 }} axisLine={false} tickLine={false} />
+                  <YAxis tickFormatter={v => formatAOA(v as number, true)} tick={{ fontSize: 11, fill: '#475569' }} axisLine={false} tickLine={false} width={80} />
+                  <RechartsTooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
+                  <Legend wrapperStyle={{ fontSize: 12, fontWeight: 600 }} />
+                  <ReferenceLine y={opexMonthly} stroke="#f59e0b" strokeDasharray="3 3" label={{ value: 'OPEX (3.85M)', fill: '#f59e0b', fontSize: 11, fontWeight: 700 }} />
+                  <Area type="monotone" dataKey="receita" name="Receita Mensal Projectada" stroke="#2563eb" fill="#3b82f6" fillOpacity={0.25} strokeWidth={2.5} isAnimationActive={isAnimationActive} animationDuration={1500} />
+                  <Area type="monotone" dataKey="net" name="Margem Operacional Líquida" stroke="#10b981" fill="#10b981" fillOpacity={0.15} strokeWidth={2} isAnimationActive={isAnimationActive} animationDuration={1500} />
+                </AreaChart>
+              </ResponsiveContainer>
+            )}
+          </AnimatedChartWrapper>
         </div>
       </Card>
 
@@ -199,10 +205,10 @@ export default function RevenueProjectionsPage() {
               {projectionsData.map((item, idx) => (
                 <tr key={idx} className="hover:bg-blue-50/30 transition-colors">
                   <td className="px-5 py-4 font-bold text-slate-900">{item.month}</td>
-                  <td className="px-5 py-4 font-bold text-blue-700 font-mono">{formatAOA(item.receita)}</td>
-                  <td className="px-5 py-4 font-bold text-amber-700 font-mono">{formatAOA(item.opex)}</td>
+                  <td className="px-5 py-4 font-bold text-blue-700 font-mono"><CountUp value={formatAOA(item.receita)} /></td>
+                  <td className="px-5 py-4 font-bold text-amber-700 font-mono"><CountUp value={formatAOA(item.opex)} /></td>
                   <td className={`px-5 py-4 font-bold font-mono ${item.net >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
-                    {formatAOA(item.net)}
+                    <CountUp value={formatAOA(item.net)} />
                   </td>
                   <td className="px-5 py-4 text-slate-600 text-justify">{item.note}</td>
                 </tr>

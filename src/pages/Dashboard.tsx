@@ -12,6 +12,9 @@ import { formatAOA } from '../utils/format';
 import StatCard from '../components/ui/StatCard';
 import Card, { CardHeader, CardTitle } from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
+import AnimatedChartWrapper from '../components/ui/AnimatedChartWrapper';
+import ProgressBar from '../components/ui/ProgressBar';
+import CountUp from '../components/ui/CountUp';
 import { revenueProjection, opexBreakdown, kpiTargets } from '../data/store';
 
 export default function Dashboard() {
@@ -118,28 +121,32 @@ export default function Dashboard() {
             </CardHeader>
           </div>
           <div className="px-2 pb-4 h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={revenueProjection} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-                <defs>
-                  <linearGradient id="gradRevenue" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.25} />
-                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
-                  </linearGradient>
-                  <linearGradient id="gradActual" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#10b981" stopOpacity={0.25} />
-                    <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
-                <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
-                <YAxis tickFormatter={v => formatAOA(v, true)} tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} width={70} />
-                <Tooltip formatter={customTooltipFormatter} contentStyle={{ borderRadius: 12, border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)', fontSize: 12 }} />
-                <Legend wrapperStyle={{ fontSize: 12 }} />
-                <Area type="monotone" dataKey="projected" name="Receita Projectada" stroke="#3b82f6" fill="url(#gradRevenue)" strokeWidth={2} dot={false} />
-                <Area type="monotone" dataKey="actual" name="Receita Real" stroke="#10b981" fill="url(#gradActual)" strokeWidth={2.5} dot={{ fill: '#10b981', r: 4 }} connectNulls={false} />
-                <Area type="monotone" dataKey="opex" name="OPEX Mensal" stroke="#f59e0b" fill="none" strokeWidth={1.5} strokeDasharray="5 5" dot={false} />
-              </AreaChart>
-            </ResponsiveContainer>
+            <AnimatedChartWrapper className="w-full h-full">
+              {({ isAnimationActive, key }) => (
+                <ResponsiveContainer width="100%" height="100%" key={key}>
+                  <AreaChart data={revenueProjection} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+                    <defs>
+                      <linearGradient id="gradRevenue" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.25} />
+                        <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                      </linearGradient>
+                      <linearGradient id="gradActual" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#10b981" stopOpacity={0.25} />
+                        <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
+                    <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+                    <YAxis tickFormatter={v => formatAOA(v, true)} tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} width={70} />
+                    <Tooltip formatter={customTooltipFormatter} contentStyle={{ borderRadius: 12, border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)', fontSize: 12 }} />
+                    <Legend wrapperStyle={{ fontSize: 12 }} />
+                    <Area type="monotone" dataKey="projected" name="Receita Projectada" stroke="#3b82f6" fill="url(#gradRevenue)" strokeWidth={2} dot={false} isAnimationActive={isAnimationActive} animationDuration={1500} />
+                    <Area type="monotone" dataKey="actual" name="Receita Real" stroke="#10b981" fill="url(#gradActual)" strokeWidth={2.5} dot={{ fill: '#10b981', r: 4 }} connectNulls={false} isAnimationActive={isAnimationActive} animationDuration={1500} />
+                    <Area type="monotone" dataKey="opex" name="OPEX Mensal" stroke="#f59e0b" fill="none" strokeWidth={1.5} strokeDasharray="5 5" dot={false} isAnimationActive={isAnimationActive} animationDuration={1500} />
+                  </AreaChart>
+                </ResponsiveContainer>
+              )}
+            </AnimatedChartWrapper>
           </div>
         </Card>
 
@@ -147,19 +154,23 @@ export default function Dashboard() {
         <Card padding={false}>
           <div className="p-6 pb-2">
             <CardTitle>Distribuição OPEX</CardTitle>
-            <p className="text-xs text-slate-700 font-medium mt-0.5">{formatAOA(opexMonthly, true)} / mês</p>
+            <p className="text-xs text-slate-700 font-medium mt-0.5"><CountUp value={formatAOA(opexMonthly, true)} /> / mês</p>
           </div>
           <div className="h-44 px-2">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie data={opexBreakdown} dataKey="value" cx="50%" cy="50%" outerRadius={70} innerRadius={40}>
-                  {opexBreakdown.map((entry, i) => (
-                    <Cell key={i} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 8, fontSize: 12, border: '1px solid #cbd5e1', boxShadow: '0 4px 16px rgba(0,0,0,0.1)' }} />
-              </PieChart>
-            </ResponsiveContainer>
+            <AnimatedChartWrapper className="w-full h-full">
+              {({ isAnimationActive, key }) => (
+                <ResponsiveContainer width="100%" height="100%" key={key}>
+                  <PieChart>
+                    <Pie data={opexBreakdown} dataKey="value" cx="50%" cy="50%" outerRadius={70} innerRadius={40} isAnimationActive={isAnimationActive} animationDuration={1500}>
+                      {opexBreakdown.map((entry, i) => (
+                        <Cell key={i} fill={entry.color} />
+                      ))}
+                    </Pie>
+                    <Tooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 8, fontSize: 12, border: '1px solid #cbd5e1', boxShadow: '0 4px 16px rgba(0,0,0,0.1)' }} />
+                  </PieChart>
+                </ResponsiveContainer>
+              )}
+            </AnimatedChartWrapper>
           </div>
           <div className="px-5 pb-5 space-y-1.5">
             {opexBreakdown.map(item => (
@@ -168,7 +179,7 @@ export default function Dashboard() {
                   <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: item.color }} />
                   <span className="text-slate-800 font-medium">{item.name}</span>
                 </div>
-                <span className="font-bold text-gray-900">{formatAOA(item.value, true)}</span>
+                <span className="font-bold text-gray-900"><CountUp value={formatAOA(item.value, true)} /></span>
               </div>
             ))}
           </div>
@@ -186,25 +197,22 @@ export default function Dashboard() {
           <div className="space-y-4">
             {kpiTargets.map(kpi => {
               const pct = Math.min(100, (kpi.current / kpi.target) * 100);
+              const colorVariant = pct >= 75 ? 'emerald' : pct >= 40 ? 'amber' : 'blue';
               return (
-                <div key={kpi.label}>
-                  <div className="flex justify-between text-sm mb-1.5">
+                <div key={kpi.label} className="space-y-1">
+                  <div className="flex justify-between text-sm">
                     <span className="text-slate-800 font-semibold">{kpi.label}</span>
-                    <span className="text-gray-900 font-bold">
-                      {kpi.unit === 'AOA' ? formatAOA(kpi.current, true) : kpi.current.toLocaleString()}
+                    <span className="text-gray-900 font-bold font-mono">
+                      <CountUp value={kpi.unit === 'AOA' ? formatAOA(kpi.current, true) : kpi.current.toLocaleString()} />
                       <span className="text-slate-600 font-semibold"> / {kpi.unit === 'AOA' ? formatAOA(kpi.target, true) : kpi.target.toLocaleString()}</span>
                     </span>
                   </div>
-                  <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-700"
-                      style={{
-                        width: `${pct}%`,
-                        background: pct >= 75 ? '#10b981' : pct >= 40 ? '#f59e0b' : '#3b82f6',
-                      }}
-                    />
-                  </div>
-                  <p className="text-xs text-slate-700 font-medium mt-0.5">{pct.toFixed(1)}% da meta</p>
+                  <ProgressBar
+                    value={pct}
+                    color={colorVariant}
+                    showPercent={true}
+                    duration={10000}
+                  />
                 </div>
               );
             })}

@@ -7,6 +7,7 @@ import PageHeader from '../components/ui/PageHeader';
 import SectionHeader from '../components/ui/SectionHeader';
 import StatCard from '../components/ui/StatCard';
 import ProgressBar from '../components/ui/ProgressBar';
+import AnimatedChartWrapper from '../components/ui/AnimatedChartWrapper';
 import { formatAOA } from '../utils/format';
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer, Tooltip as RechartsTooltip } from 'recharts';
 import { useERP } from '../context/ERPContext';
@@ -156,14 +157,18 @@ export default function KPIsPage() {
         <Card className="space-y-4">
           <SectionHeader title="Radar de Desempenho Multidimensional" subtitle="Avaliação de maturidade técnica, financeira e institucional." />
           <div className="h-72 w-full pt-2">
-            <ResponsiveContainer width="100%" height="100%">
-              <RadarChart data={radarData}>
-                <PolarGrid stroke="#e2e8f0" />
-                <PolarAngleAxis dataKey="metric" tick={{ fontSize: 11, fill: '#475569', fontWeight: 600 }} />
-                <Radar name="Maturidade" dataKey="value" stroke="#2563eb" fill="#3b82f6" fillOpacity={0.35} />
-                <RechartsTooltip contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
-              </RadarChart>
-            </ResponsiveContainer>
+            <AnimatedChartWrapper className="w-full h-full">
+              {({ isAnimationActive, key }) => (
+                <ResponsiveContainer width="100%" height="100%" key={key}>
+                  <RadarChart data={radarData}>
+                    <PolarGrid stroke="#e2e8f0" />
+                    <PolarAngleAxis dataKey="metric" tick={{ fontSize: 11, fill: '#475569', fontWeight: 600 }} />
+                    <Radar name="Maturidade" dataKey="value" stroke="#2563eb" fill="#3b82f6" fillOpacity={0.35} isAnimationActive={isAnimationActive} animationDuration={1500} />
+                    <RechartsTooltip contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
+                  </RadarChart>
+                </ResponsiveContainer>
+              )}
+            </AnimatedChartWrapper>
           </div>
         </Card>
       </div>

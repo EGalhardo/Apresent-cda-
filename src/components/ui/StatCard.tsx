@@ -61,7 +61,7 @@ export default function StatCard({
 
       <div className="space-y-1">
         <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-mono">
-          <CountUp value={value} duration={10000} />
+          <CountUp value={value} />
         </div>
         {subtitle && <p className="text-xs text-slate-500 font-medium">{subtitle}</p>}
       </div>
@@ -71,12 +71,12 @@ export default function StatCard({
           {trend.up ? (
             <span className="text-emerald-700 flex items-center gap-1">
               <TrendingUp size={14} />
-              <span>+{trend.value}</span>
+              <span>+<CountUp value={trend.value} /></span>
             </span>
           ) : (
             <span className="text-red-700 flex items-center gap-1">
               <TrendingDown size={14} />
-              <span>-{trend.value}</span>
+              <span>-<CountUp value={trend.value} /></span>
             </span>
           )}
           <span className="text-slate-500 font-normal">vs. mês anterior</span>

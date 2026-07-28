@@ -6,6 +6,8 @@ import { formatAOA, formatDate } from '../utils/format';
 import Card, { CardTitle } from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
 import Modal from '../components/ui/Modal';
+import AnimatedChartWrapper from '../components/ui/AnimatedChartWrapper';
+import CountUp from '../components/ui/CountUp';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 const categoryLabel: Record<ExpenseCategory, string> = {
@@ -123,19 +125,19 @@ export default function Expenses() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-white rounded-2xl p-4 border border-gray-200 col-span-1">
           <p className="text-xs text-gray-400 font-medium mb-1">Total Despesas</p>
-          <p className="text-xl font-bold text-gray-900">{formatAOA(totalExpenses, true)}</p>
+          <p className="text-xl font-bold text-gray-900"><CountUp value={formatAOA(totalExpenses, true)} /></p>
         </div>
         <div className="bg-white rounded-2xl p-4 border border-gray-200">
           <p className="text-xs text-gray-400 font-medium mb-1">OPEX Recorrente/mês</p>
-          <p className="text-xl font-bold text-blue-600">{formatAOA(settings.opexMonthly, true)}</p>
+          <p className="text-xl font-bold text-blue-600"><CountUp value={formatAOA(settings.opexMonthly, true)} /></p>
         </div>
         <div className="bg-white rounded-2xl p-4 border border-gray-200">
           <p className="text-xs text-gray-400 font-medium mb-1">CAPEX Registado</p>
-          <p className="text-xl font-bold text-red-600">{formatAOA(expenses.filter(e => e.category === 'capex').reduce((s, e) => s + e.amount, 0), true)}</p>
+          <p className="text-xl font-bold text-red-600"><CountUp value={formatAOA(expenses.filter(e => e.category === 'capex').reduce((s, e) => s + e.amount, 0), true)} /></p>
         </div>
         <div className="bg-white rounded-2xl p-4 border border-gray-200">
           <p className="text-xs text-gray-400 font-medium mb-1">Nº Registos</p>
-          <p className="text-xl font-bold text-gray-900">{expenses.length}</p>
+          <p className="text-xl font-bold text-gray-900"><CountUp value={expenses.length} /></p>
         </div>
       </div>
 
@@ -145,17 +147,21 @@ export default function Expenses() {
           <CardTitle>Despesas por Categoria</CardTitle>
         </div>
         <div className="h-48">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={byCategory} margin={{ top: 0, right: 10, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
-              <XAxis dataKey="cat" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
-              <YAxis tickFormatter={v => formatAOA(v as number, true)} tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} width={75} />
-              <Tooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 10, border: 'none', boxShadow: '0 4px 16px rgba(0,0,0,0.1)', fontSize: 12 }} />
-              <Bar dataKey="total" radius={[6, 6, 0, 0]}>
-                {byCategory.map((entry, i) => <Cell key={i} fill={entry.color} />)}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+          <AnimatedChartWrapper className="w-full h-full">
+            {({ isAnimationActive, key }) => (
+              <ResponsiveContainer width="100%" height="100%" key={key}>
+                <BarChart data={byCategory} margin={{ top: 0, right: 10, left: 0, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
+                  <XAxis dataKey="cat" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+                  <YAxis tickFormatter={v => formatAOA(v as number, true)} tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} width={75} />
+                  <Tooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 10, border: 'none', boxShadow: '0 4px 16px rgba(0,0,0,0.1)', fontSize: 12 }} />
+                  <Bar dataKey="total" radius={[6, 6, 0, 0]} isAnimationActive={isAnimationActive} animationDuration={1500}>
+                    {byCategory.map((entry, i) => <Cell key={i} fill={entry.color} />)}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            )}
+          </AnimatedChartWrapper>
         </div>
       </Card>
 
