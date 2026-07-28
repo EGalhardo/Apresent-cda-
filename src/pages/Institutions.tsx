@@ -129,7 +129,7 @@ export default function Institutions() {
         <div className="p-5 border-b border-gray-100">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <CardTitle>Pipeline Institucional</CardTitle>
+              <CardTitle>Funil Institucional de Adesão</CardTitle>
               <p className="text-xs text-gray-400 mt-0.5">MRR Total Activo: {formatAOA(totalMRR, true)}</p>
             </div>
             <div className="flex flex-wrap items-center gap-2">

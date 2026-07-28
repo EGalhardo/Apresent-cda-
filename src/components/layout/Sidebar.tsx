@@ -56,10 +56,10 @@ const menuGroups: MenuGroup[] = [
     icon: Presentation,
     items: [
       { id: 'intro', label: 'Introdução', icon: Compass, purpose: 'Visão geral e contexto do Correio Digital Angola', meaning: 'Apresentação institucional da plataforma unificada de mensagens oficiais do Estado' },
-      { id: 'problem', label: 'Problema Actual', icon: HelpCircle, purpose: 'Diagnóstico dos custos e atrasos do correio em papel', meaning: 'Custos elevados, extravios e lentidão nas comunicações em papel' },
-      { id: 'solution', label: 'A Nossa Solução', icon: Lightbulb, purpose: 'Plataforma digital para envio seguro de notificações e documentos', meaning: 'Envio de correio digital certificado para o Governo, Empresas e Cidadãos' },
+      { id: 'problem', label: 'Problema', icon: HelpCircle, purpose: 'Diagnóstico dos custos e atrasos do correio em papel', meaning: 'Custos elevados, extravios e lentidão nas comunicações em papel' },
+      { id: 'solution', label: 'Solução', icon: Lightbulb, purpose: 'Plataforma digital para envio seguro de notificações e documentos', meaning: 'Envio de correio digital certificado para o Governo, Empresas e Cidadãos' },
       { id: 'benefits', label: 'Benefícios', icon: Award, purpose: 'Economia de custos e rapidez para o Estado e Cidadãos', meaning: 'Redução de custos até 90% na entrega de documentos oficiais' },
-      { id: 'conclusion', label: 'Conclusão & Visão', icon: CheckCircle2, purpose: 'Resumo dos passos para a modernização do correio', meaning: 'Passo decisivo para a transformação digital em Angola' },
+      { id: 'conclusion', label: 'Conclusão', icon: CheckCircle2, purpose: 'Resumo dos passos para a modernização do correio', meaning: 'Passo decisivo para a transformação digital em Angola' },
     ],
   },
   {

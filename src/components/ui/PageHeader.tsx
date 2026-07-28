@@ -38,9 +38,11 @@ export default function PageHeader({
             <span>{title}</span>
           </h1>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium text-justify">
-            {description}
-          </p>
+          <div className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium text-justify space-y-3">
+            {description.split('\n\n').map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
         </div>
 
         {action && (

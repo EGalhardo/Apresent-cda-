@@ -166,17 +166,17 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
         <div className="space-y-6 max-w-7xl mx-auto">
           {/* Header */}
           <PageHeader
-            badge="Modelo B2G & B2B SaaS"
+            badge="Modelo B2G & B2B (Software como Serviço)"
             secondaryBadge="Apresentação Executiva"
             title="Modelo de Negócio e Fontes de Receita"
-            description="O Correio Digital Angola adopta um modelo Software as a Service (SaaS) orientado aos mercados Business-to-Government (B2G) e Business-to-Business (B2B). As principais fontes de receita incluem taxas de implementação institucional, subscrições mensais por utilizador ou entidade, serviços de integração tecnológica, notificações oficiais, comunicações certificadas e funcionalidades premium destinadas aos sectores público e privado."
+            description="O Correio Digital Angola adopta um modelo de Software como Serviço (SaaS) orientado aos mercados de Empresa para Governo (B2G) e Empresa para Empresa (B2B). As principais fontes de receita incluem taxas de implementação institucional, subscrições mensais por utilizador ou entidade, serviços de integração tecnológica, notificações oficiais, comunicações certificadas e funcionalidades premium destinadas aos sectores público e privado."
             icon={Briefcase}
           />
 
           {/* Revenue Stream Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="space-y-3">
-              <Badge variant="blue">Pilar 1: Setup Único</Badge>
+              <Badge variant="blue">Pilar 1: Taxa de Adesão Inicial</Badge>
               <CardTitle>Taxa de Implementação</CardTitle>
               <p className="text-2xl sm:text-3xl font-extrabold text-blue-700 tracking-tight">10.000.000 AOA</p>
               <p className="text-xs text-slate-600 leading-relaxed font-medium text-justify">
@@ -237,9 +237,9 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
                 steps={[
                   {
                     step: '1',
-                    title: 'Onboarding & Setup Técnico',
+                    title: 'Integração & Configuração Técnica',
                     description: 'Entrada com pagamento da taxa de 10M AOA para integração de sistemas e homologação oficial.',
-                    badge: 'Taxa de Setup',
+                    badge: 'Taxa de Adesão',
                     badgeVariant: 'blue',
                   },
                   {
@@ -315,7 +315,7 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
                 <thead className="bg-white text-slate-800 font-extrabold uppercase tracking-wider border-b border-slate-200">
                   <tr>
                     <th className="px-5 py-4">Segmento de Cliente</th>
-                    <th className="px-5 py-4">Taxa de Adesão / Setup</th>
+                    <th className="px-5 py-4">Taxa de Adesão Inicial</th>
                     <th className="px-5 py-4">Licença Mensal</th>
                     <th className="px-5 py-4">Capacidade & Incluídos</th>
                   </tr>
@@ -361,10 +361,10 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
         <div className="space-y-6 max-w-7xl mx-auto">
           {/* Header */}
           <PageHeader
-            badge="Go-To-Market B2G"
+            badge="Entrada no Mercado B2G"
             secondaryBadge="Apresentação Executiva"
-            title="Estratégia Comercial & Pipeline de Vendas"
-            description="A estratégia comercial baseia-se numa expansão progressiva, iniciando-se com projetos-piloto em instituições estratégicas e evoluindo para uma adoção nacional. O pipeline de vendas prevê a validação inicial no INAPEM, seguida da expansão para Ministérios, Governos Provinciais, Institutos Públicos, Empresas Públicas, Bancos, Seguradoras e restantes organizações privadas, criando um efeito de credibilidade e aceleração da adoção."
+            title="Estratégia Comercial & Funil de Vendas"
+            description="A estratégia comercial baseia-se numa expansão progressiva, iniciando-se com projetos-piloto em instituições estratégicas e evoluindo para uma adoção nacional. O funil de vendas prevê a validação inicial no INAPEM, seguida da expansão para Ministérios, Governos Provinciais, Institutos Públicos, Empresas Públicas, Bancos, Seguradoras e restantes organizações privadas, criando um efeito de credibilidade e aceleração da adoção."
             icon={TrendingUp}
           />
 
@@ -377,7 +377,7 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
               </div>
               <CardTitle>Piloto INAPEM</CardTitle>
               <p className="text-xs text-slate-600 leading-relaxed font-medium text-justify">
-                Caso de sucesso e prova de conceito no INAPEM. Validação técnica, cibersegurança e emissão do parecer oficial do Phase Gate 1.
+                Caso de sucesso e prova de conceito no INAPEM. Validação técnica, cibersegurança e emissão do parecer oficial do Marco de Controlo 1.
               </p>
               <div className="bg-emerald-50 p-3.5 rounded-xl border border-emerald-200 text-xs font-bold text-emerald-800">
                 Meta: Validação 100% concluída
@@ -427,12 +427,12 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
               <StatCard
                 title="Ticket Médio Anual"
                 value="22M – 36M AOA"
-                subtitle="Setup + 12 meses subscrição"
+                subtitle="Adesão + 12 meses de subscrição"
                 color="emerald"
               />
               <StatCard
                 title="Taxa de Cancelamento"
-                value="Churn ~0%"
+                value="Cancelamento ~0%"
                 subtitle="Retenção total no sector público"
                 color="purple"
               />

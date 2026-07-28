@@ -2,6 +2,7 @@ import React from 'react';
 import { LucideIcon, TrendingUp, TrendingDown } from 'lucide-react';
 import { cn } from '../../utils/format';
 import Badge from './Badge';
+import CountUp from './CountUp';
 
 export interface StatCardProps {
   key?: React.Key;
@@ -59,7 +60,9 @@ export default function StatCard({
       </div>
 
       <div className="space-y-1">
-        <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-mono">{value}</div>
+        <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-mono">
+          <CountUp value={value} duration={10000} />
+        </div>
         {subtitle && <p className="text-xs text-slate-500 font-medium">{subtitle}</p>}
       </div>
 

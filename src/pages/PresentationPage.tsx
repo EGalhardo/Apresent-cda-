@@ -31,20 +31,9 @@ export default function PresentationPage({ topic, onNavigate }: PresentationPage
             badge="Visão Estratégica de Estado"
             secondaryBadge="GovTech Angola"
             title="Introdução — Correio Digital Angola (CDA)"
-            description="O Correio Digital Angola é uma plataforma GovTech desenvolvida para modernizar a comunicação oficial entre o Estado, os cidadãos, as empresas e as demais instituições públicas e privadas. A solução transforma o Bilhete de Identidade numa morada digital oficial, permitindo que qualquer comunicação institucional seja enviada e recebida de forma rápida, segura, certificada e acessível."
+            description={`O Correio Digital Angola é uma plataforma GovTech desenvolvida para modernizar a comunicação oficial entre o Estado, os cidadãos, as empresas e as demais instituições públicas e privadas. A solução transforma o Bilhete de Identidade numa morada digital oficial, permitindo que qualquer comunicação institucional seja enviada e recebida de forma rápida, segura, certificada e acessível.\n\nMais do que substituir o papel pela tecnologia, o projecto cria uma infraestrutura digital nacional preparada para apoiar a transformação digital da Administração Pública, promovendo maior eficiência, transparência e proximidade entre as instituições e os cidadãos. A plataforma foi concebida para integrar-se com os sistemas existentes, assegurando uma comunicação mais inteligente, fiável e preparada para responder aos desafios do futuro.`}
             icon={Compass}
           />
-
-          {/* Detailed Narrative Section */}
-          <Card className="space-y-4">
-            <SectionHeader title="A Infraestrutura Digital Nacional" icon={Sparkles} />
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify font-medium">
-              O Correio Digital Angola é uma plataforma GovTech desenvolvida para modernizar a comunicação oficial entre o Estado, os cidadãos, as empresas e as demais instituições públicas e privadas. A solução transforma o Bilhete de Identidade numa morada digital oficial, permitindo que qualquer comunicação institucional seja enviada e recebida de forma rápida, segura, certificada e acessível.
-            </p>
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify font-medium">
-              Mais do que substituir o papel pela tecnologia, o projecto cria uma infraestrutura digital nacional preparada para apoiar a transformação digital da Administração Pública, promovendo maior eficiência, transparência e proximidade entre as instituições e os cidadãos. A plataforma foi concebida para integrar-se com os sistemas existentes, assegurando uma comunicação mais inteligente, fiável e preparada para responder aos desafios do futuro.
-            </p>
-          </Card>
 
           {/* Key Pillars Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -110,7 +99,7 @@ export default function PresentationPage({ topic, onNavigate }: PresentationPage
                 </div>
                 <h3 className="text-xl font-extrabold text-slate-900">Piloto INAPEM Previsto</h3>
                 <p className="text-slate-700 font-medium text-xs sm:text-sm max-w-2xl leading-relaxed text-justify">
-                  O Instituto Nacional de Apoio às Pequenas e Médias Empresas (INAPEM) é a instituição âncora prevista para o projecto piloto, que permitirá validar a plataforma antes do rollout para os restantes Ministérios.
+                  O Instituto Nacional de Apoio às Pequenas e Médias Empresas (INAPEM) é a instituição âncora prevista para o projecto piloto, que permitirá validar a plataforma antes da expansão para os restantes Ministérios.
                 </p>
               </div>
 
@@ -135,20 +124,9 @@ export default function PresentationPage({ topic, onNavigate }: PresentationPage
             badge="Diagnóstico Estrutural"
             secondaryBadge="Análise do Contexto"
             title="O Problema: Os Desafios do Correio Físico na Comunicação Oficial"
-            description="Grande parte da comunicação oficial em Angola continua dependente de documentos em papel, deslocações presenciais e moradas físicas, tornando muitos processos administrativos lentos, dispendiosos e sujeitos a atrasos, extravios e dificuldades na localização dos destinatários. Esta realidade reduz a eficiência dos serviços públicos, aumenta os custos operacionais das instituições e dificulta o acesso dos cidadãos às informações que lhes são dirigidas."
+            description={`Grande parte da comunicação oficial em Angola continua dependente de documentos em papel, deslocações presenciais e moradas físicas, tornando muitos processos administrativos lentos, dispendiosos e sujeitos a atrasos, extravios e dificuldades na localização dos destinatários. Esta realidade reduz a eficiência dos serviços públicos, aumenta os custos operacionais das instituições e dificulta o acesso dos cidadãos às informações que lhes são dirigidas.\n\nAo mesmo tempo, muitas organizações utilizam sistemas isolados, sem integração e comunicação entre si, o que dificulta a troca de informações e limita a evolução da transformação digital do país. Torna-se, por isso, necessária uma solução nacional que centralize, simplifique e torne mais segura toda a comunicação oficial entre o Estado e os seus diferentes intervenientes.`}
             icon={AlertTriangle}
           />
-
-          {/* Narrative Card */}
-          <Card className="space-y-4">
-            <SectionHeader title="Ineficiências e Fragmentação Sistémica" icon={AlertTriangle} />
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify font-medium">
-              Grande parte da comunicação oficial em Angola continua dependente de documentos em papel, deslocações presenciais e moradas físicas, tornando muitos processos administrativos lentos, dispendiosos e sujeitos a atrasos, extravios e dificuldades na localização dos destinatários. Esta realidade reduz a eficiência dos serviços públicos, aumenta os custos operacionais das instituições e dificulta o acesso dos cidadãos às informações que lhes são dirigidas.
-            </p>
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify font-medium">
-              Ao mesmo tempo, muitas organizações utilizam sistemas isolados, sem integração e comunicação entre si, o que dificulta a troca de informações e limita a evolução da transformação digital do país. Torna-se, por isso, necessária uma solução nacional que centralize, simplifique e torne mais segura toda a comunicação oficial entre o Estado e os seus diferentes intervenientes.
-            </p>
-          </Card>
 
           {/* Problem Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -237,21 +215,10 @@ export default function PresentationPage({ topic, onNavigate }: PresentationPage
           <PageHeader
             badge="Arquitectura Tecnológica"
             secondaryBadge="Plataforma Soberana"
-            title="A Solução: Plataforma Única de Correspondência Digital"
-            description="O Correio Digital Angola disponibiliza uma plataforma única que permite às instituições enviar notificações, documentos, avisos e comunicações oficiais diretamente para a morada digital dos cidadãos, utilizando o Bilhete de Identidade como identificador único."
+            title="A Solução: Plataforma de Correspondência Digital"
+            description={`O Correio Digital Angola disponibiliza uma plataforma de correspondência digital que permite às instituições enviar notificações, documentos, avisos e comunicações oficiais diretamente para a morada digital dos cidadãos, utilizando o Bilhete de Identidade como identificador único.\n\nA plataforma integra funcionalidades como autenticação segura, assinatura electrónica, notificações inteligentes, inteligência artificial, gestão documental e ligação simples com os sistemas já existentes nas instituições. Esta abordagem permite reduzir significativamente o tempo de processamento, aumentar a segurança da informação e oferecer uma experiência digital moderna, tanto para os organismos públicos como para os seus utilizadores.`}
             icon={Zap}
           />
-
-          {/* Narrative Card */}
-          <Card className="space-y-4">
-            <SectionHeader title="Funcionalidades e Abordagem Integrada" icon={Zap} />
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify font-medium">
-              O Correio Digital Angola disponibiliza uma plataforma única de correspondência digital que permite às instituições enviar notificações, documentos, avisos e comunicações oficiais diretamente para a morada digital dos cidadãos, utilizando o Bilhete de Identidade como identificador único.
-            </p>
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify font-medium">
-              A plataforma integra funcionalidades como autenticação segura, assinatura electrónica, notificações inteligentes, inteligência artificial, gestão documental e ligação simples com os sistemas já existentes nas instituições. Esta abordagem permite reduzir significativamente o tempo de processamento, aumentar a segurança da informação e oferecer uma experiência digital moderna, tanto para os organismos públicos como para os seus utilizadores.
-            </p>
-          </Card>
 
           {/* Workflow Diagram Card */}
           <Card className="space-y-4">
@@ -300,20 +267,9 @@ export default function PresentationPage({ topic, onNavigate }: PresentationPage
             badge="Retorno e Impacto"
             secondaryBadge="Valor para a Sociedade"
             title="Benefícios para o Estado, Instituições e Cidadãos"
-            description="A implementação do Correio Digital Angola proporciona benefícios concretos para o Estado, para as instituições e para os cidadãos, reduzindo custos e acelerando a modernização pública."
+            description={`A implementação do Correio Digital Angola proporciona benefícios concretos para o Estado, para as instituições e para os cidadãos. A plataforma reduz custos com impressão, transporte, armazenamento e distribuição de documentos, ao mesmo tempo que acelera os processos administrativos e melhora a qualidade dos serviços prestados.\n\nAlém disso, garante maior segurança, rastreabilidade e autenticidade das comunicações oficiais, reduzindo riscos de perda de documentos e aumentando a confiança dos utilizadores. A integração entre diferentes organismos públicos favorece a partilha de informação, melhora a coordenação institucional e contribui para uma Administração Pública mais moderna, eficiente e orientada para o cidadão. Para a sociedade, representa um passo importante rumo à inclusão digital e à consolidação do governo electrónico em Angola.`}
             icon={CheckCircle2}
           />
-
-          {/* Narrative Card */}
-          <Card className="space-y-4">
-            <SectionHeader title="Impacto Transversal e Inclusão Digital" icon={CheckCircle2} />
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify font-medium">
-              A implementação do Correio Digital Angola proporciona benefícios concretos para o Estado, para as instituições e para os cidadãos. A plataforma reduz custos com impressão, transporte, armazenamento e distribuição de documentos, ao mesmo tempo que acelera os processos administrativos e melhora a qualidade dos serviços prestados.
-            </p>
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify font-medium">
-              Além disso, garante maior segurança, rastreabilidade e autenticidade das comunicações oficiais, reduzindo riscos de perda de documentos e aumentando a confiança dos utilizadores. A integração entre diferentes organismos públicos favorece a partilha de informação, melhora a coordenação institucional e contribui para uma Administração Pública mais moderna, eficiente e orientada para o cidadão. Para a sociedade, representa um passo importante rumo à inclusão digital e à consolidação do governo electrónico em Angola.
-            </p>
-          </Card>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <StatCard
@@ -346,22 +302,9 @@ export default function PresentationPage({ topic, onNavigate }: PresentationPage
             badge="Conclusão & Visão de Futuro"
             secondaryBadge="GovTech Angola"
             title="Conclusão — Correio Digital Angola"
-            description="Uma nova infraestrutura para a governação electrónica e a modernização do Estado angolano, promovendo eficiência, transparência e cidadania digital."
+            description={`O Correio Digital Angola representa uma nova forma de comunicar entre o Estado e os cidadãos, substituindo processos tradicionais por uma infraestrutura digital segura, eficiente e preparada para crescer à medida que o país evolui tecnologicamente. O projecto combina inovação, sustentabilidade e impacto social, criando condições para uma Administração Pública mais ágil, transparente e conectada.\n\nCom potencial para servir milhões de cidadãos e milhares de instituições, o Correio Digital Angola posiciona-se como uma solução estratégica para apoiar a transformação digital de Angola, fortalecer a governação electrónica e aproximar cada vez mais o Estado dos cidadãos através da tecnologia.`}
             icon={Sparkles}
           />
-
-          {/* Detailed High-Contrast Narrative Card */}
-          <Card className="space-y-4">
-            <SectionHeader title="A Infraestrutura Estratégica da Comunicação Oficial" icon={Sparkles} />
-            
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify font-medium">
-              O Correio Digital Angola representa uma nova forma de comunicar entre o Estado e os cidadãos, substituindo processos tradicionais por uma infraestrutura digital segura, eficiente e preparada para crescer à medida que o país evolui tecnologicamente. O projecto combina inovação, sustentabilidade e impacto social, criando condições para uma Administração Pública mais ágil, transparente e conectada.
-            </p>
-            
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify font-medium">
-              Com potencial para servir milhões de cidadãos e milhares de instituições, o Correio Digital Angola posiciona-se como uma solução estratégica para apoiar a transformação digital de Angola, fortalecer a governação electrónica e aproximar cada vez mais o Estado dos cidadãos através da tecnologia.
-            </p>
-          </Card>
 
           {/* Action / Next Steps Banner */}
           <Card className="space-y-4">
