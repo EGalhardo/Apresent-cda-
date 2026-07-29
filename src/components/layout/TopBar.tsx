@@ -5,6 +5,7 @@ import { useERP } from '../../context/ERPContext';
 import { formatAOA } from '../../utils/format';
 
 const pageTitles: Record<Page, string> = {
+  logo: 'Logomarca Oficial',
   intro: 'Apresentação — Introdução',
   problem: 'Apresentação — Problema',
   solution: 'Apresentação — Solução',

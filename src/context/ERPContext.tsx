@@ -76,7 +76,14 @@ export function ERPProvider({ children }: { children: React.ReactNode }) {
   const [institutions, setInstitutions] = useState<Institution[]>(() => loadStorage('cda_institutions', initialInstitutions));
   const [invoices, setInvoices] = useState<Invoice[]>(() => loadStorage('cda_invoices', initialInvoices));
   const [expenses, setExpenses] = useState<Expense[]>(() => loadStorage('cda_expenses', initialExpenses));
-  const [employees, setEmployees] = useState<Employee[]>(() => loadStorage('cda_employees', initialEmployees));
+  const [employees, setEmployees] = useState<Employee[]>(() => {
+    const loaded = loadStorage('cda_employees', initialEmployees);
+    return loaded.map(emp => {
+      if (emp.name === 'Adilson Ferreira') return { ...emp, name: 'Edlasio Galhardo', email: 'edlasio.galhardo@correidigitalangola.ao' };
+      if (emp.name === 'Sofia Monteiro') return { ...emp, name: 'Erminda Calunga', email: 'erminda.calunga@correidigitalangola.ao' };
+      return emp;
+    });
+  });
   const [settings, setSettings] = useState<ERPSettings>(() => loadStorage('cda_settings', defaultSettings));
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Badge from './Badge';
 
 interface PageHeaderProps {
-  badge: string;
+  badge?: string;
   secondaryBadge?: string;
   title: string;
   description: string;
@@ -12,7 +12,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({
   badge,
-  secondaryBadge = 'Apresentação Interativa',
+  secondaryBadge,
   title,
   description,
   action,
@@ -22,16 +22,20 @@ export default function PageHeader({
     <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-md transition-all duration-300">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-3 max-w-4xl">
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="blue" className="px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
-              {badge}
-            </Badge>
-            {secondaryBadge && (
-              <span className="text-xs font-bold text-blue-700 uppercase tracking-wider bg-blue-50/80 px-3 py-1 rounded-full border border-blue-100/80">
-                {secondaryBadge}
-              </span>
-            )}
-          </div>
+          {(badge || secondaryBadge) && (
+            <div className="flex flex-wrap items-center gap-2">
+              {badge && (
+                <Badge variant="blue" className="px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
+                  {badge}
+                </Badge>
+              )}
+              {secondaryBadge && (
+                <span className="text-xs font-bold text-blue-700 uppercase tracking-wider bg-blue-50/80 px-3 py-1 rounded-full border border-blue-100/80">
+                  {secondaryBadge}
+                </span>
+              )}
+            </div>
+          )}
 
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
             {Icon && <Icon size={32} className="text-blue-600 flex-shrink-0" />}

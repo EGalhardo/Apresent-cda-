@@ -251,23 +251,23 @@ export const initialExpenses: Expense[] = [
 export const initialEmployees: Employee[] = [
   {
     id: 'emp-001',
-    name: 'Adilson Ferreira',
+    name: 'Edlasio Galhardo',
     role: 'CEO / Desenvolvedor Full Stack',
     department: 'Direcção',
     salary: 100000,
     startDate: '2025-01-01',
     status: 'active',
-    email: 'ceo@correidigitalangola.ao',
+    email: 'edlasio.galhardo@correidigitalangola.ao',
   },
   {
     id: 'emp-002',
-    name: 'Sofia Monteiro',
+    name: 'Erminda Calunga',
     role: 'Directora Financeira',
     department: 'Financeiro',
     salary: 100000,
     startDate: '2025-01-01',
     status: 'active',
-    email: 'financeiro@correidigitalangola.ao',
+    email: 'erminda.calunga@correidigitalangola.ao',
   },
   {
     id: 'emp-003',

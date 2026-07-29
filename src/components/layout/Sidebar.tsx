@@ -12,6 +12,7 @@ import { cn } from '../../utils/format';
 import Tooltip from '../ui/Tooltip';
 
 export type Page =
+  | 'logo'
   // Apresentação
   | 'intro'
   | 'problem'
@@ -97,6 +98,7 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
 
   // Accordion behavior: determine active group based on currentPage or user toggle
   const getGroupForPage = (page: Page): 'apresentacao' | 'plano_financeiro' => {
+    if (page === 'logo') return expandedGroup || 'apresentacao';
     const isPresentation = menuGroups[0].items.some(i => i.id === page);
     return isPresentation ? 'apresentacao' : 'plano_financeiro';
   };
@@ -134,8 +136,12 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
       >
         {/* Brand Header */}
         <div className={cn('p-4 border-b border-slate-100 flex items-center justify-between', collapsed && 'flex-col items-center gap-3')}>
-          <div className="flex items-center gap-3 min-w-0">
-            <div className="flex-shrink-0 flex items-center justify-center">
+          <button
+            onClick={() => handleSelectPage('logo')}
+            className="flex items-center gap-3 min-w-0 text-left cursor-pointer group hover:opacity-90 transition-opacity"
+            title="Ver Logomarca Oficial na Área Central"
+          >
+            <div className="flex-shrink-0 flex items-center justify-center p-1 rounded-xl group-hover:bg-blue-50 transition-colors">
               <img
                 src="https://i.postimg.cc/FzX16XZQ/logomarca-cda.png"
                 alt="Correio Digital Angola"
@@ -144,11 +150,10 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
             </div>
             {!collapsed && (
               <div className="min-w-0">
-                <span className="text-xs font-extrabold text-slate-900 tracking-tight block truncate">Correio Digital Angola</span>
-                <span className="text-[11px] text-blue-700 font-bold block truncate">Apresentação Interativa</span>
+                <span className="text-xs font-extrabold text-slate-900 tracking-tight block truncate group-hover:text-blue-600 transition-colors">Correio Digital Angola</span>
               </div>
             )}
-          </div>
+          </button>
 
           {/* Toggle Collapse Button in Desktop Header */}
           <button

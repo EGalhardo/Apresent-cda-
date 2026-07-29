@@ -14,6 +14,7 @@ import Invoices from './pages/Invoices';
 import Expenses from './pages/Expenses';
 import Employees from './pages/Employees';
 import Settings from './pages/Settings';
+import BrandLogoPage from './pages/BrandLogoPage';
 import { Menu } from 'lucide-react';
 
 function AppContent() {
@@ -71,6 +72,8 @@ function AppContent() {
         return <KPIsPage />;
 
       // Management System Pages
+      case 'logo':
+        return <BrandLogoPage />;
       case 'institutions':
         return <Institutions />;
       case 'invoices':
@@ -109,11 +112,17 @@ function AppContent() {
             <Menu size={20} />
           </button>
 
-          <img
-            src="https://i.postimg.cc/FzX16XZQ/logomarca-cda.png"
-            alt="Logo CDA"
-            className="h-8 object-contain"
-          />
+          <button
+            onClick={() => handleNavigate('logo')}
+            className="hover:opacity-80 transition-opacity cursor-pointer p-1 rounded-lg"
+            title="Ver Logomarca Oficial"
+          >
+            <img
+              src="https://i.postimg.cc/FzX16XZQ/logomarca-cda.png"
+              alt="Logo CDA"
+              className="h-8 object-contain"
+            />
+          </button>
         </div>
 
         {/* Scrollable Main Area */}
