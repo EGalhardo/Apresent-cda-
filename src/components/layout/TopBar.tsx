@@ -10,6 +10,7 @@ const pageTitles: Record<Page, string> = {
   problem: 'Apresentação — Problema',
   solution: 'Apresentação — Solução',
   benefits: 'Apresentação — Benefícios',
+  security: 'Apresentação — Segurança da Plataforma',
   conclusion: 'Apresentação — Conclusão',
   objectives: 'Plano Financeiro — Objectivos',
   strategic_goals: 'Plano Financeiro — Metas Estratégicas',

@@ -15,7 +15,7 @@ import Timeline from '../components/ui/Timeline';
 import { useERP } from '../context/ERPContext';
 
 interface PresentationPageProps {
-  topic: 'intro' | 'problem' | 'solution' | 'benefits' | 'conclusion';
+  topic: 'intro' | 'problem' | 'solution' | 'benefits' | 'security' | 'conclusion';
   onNavigate?: (page: any) => void;
 }
 
@@ -288,6 +288,40 @@ export default function PresentationPage({ topic, onNavigate }: PresentationPage
               title="GOVERNO ELETRÓNICO"
               value="Cidadania Digital"
               subtitle="Maior coordenação entre Ministérios e consolidação dos serviços públicos digitais"
+              color="purple"
+            />
+          </div>
+        </div>
+      );
+
+    case 'security':
+      return (
+        <div className="space-y-6 max-w-7xl mx-auto">
+          <PageHeader
+            badge="Proteção e Confiança"
+            secondaryBadge="GovTech Angola"
+            title="Segurança da Plataforma — Correio Digital Angola"
+            description={`A segurança do Correio Digital Angola foi concebida para garantir que apenas utilizadores autorizados possam aceder às suas informações. A plataforma protege os dados dos cidadãos e das instituições através de mecanismos avançados de autenticação, controlo de acessos e encriptação, assegurando confidencialidade, integridade e rastreabilidade em todas as operações.\n\nAlém disso, todas as ações relevantes ficam registadas para efeitos de auditoria, enquanto processos de validação e monitorização contínua ajudam a prevenir fraudes, acessos não autorizados e utilização abusiva da plataforma, reforçando a confiança no serviço.`}
+            icon={ShieldCheck}
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <StatCard
+              title="PROTEÇÃO DE DADOS"
+              value="Acesso Restrito"
+              subtitle="Cada cidadão e instituição acede apenas às suas próprias informações e documentos."
+              color="blue"
+            />
+            <StatCard
+              title="AUTENTICAÇÃO SEGURA"
+              value="Identidade Verificada"
+              subtitle="Contas validadas e acessos protegidos por mecanismos de autenticação e controlo de permissões."
+              color="emerald"
+            />
+            <StatCard
+              title="AUDITORIA & MONITORIZAÇÃO"
+              value="Rastreabilidade Total"
+              subtitle="Registo das operações, monitorização contínua e prevenção de acessos indevidos."
               color="purple"
             />
           </div>

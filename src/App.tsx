@@ -41,6 +41,7 @@ function AppContent() {
       case 'problem':
       case 'solution':
       case 'benefits':
+      case 'security':
       case 'conclusion':
         return <PresentationPage topic={currentPage} onNavigate={handleNavigate} />;
 
