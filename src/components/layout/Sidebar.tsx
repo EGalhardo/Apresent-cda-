@@ -98,7 +98,7 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
 
   // Accordion behavior: determine active group based on currentPage or user toggle
   const getGroupForPage = (page: Page): 'apresentacao' | 'plano_financeiro' => {
-    if (page === 'logo') return expandedGroup || 'apresentacao';
+    if (page === 'logo') return 'apresentacao';
     const isPresentation = menuGroups[0].items.some(i => i.id === page);
     return isPresentation ? 'apresentacao' : 'plano_financeiro';
   };

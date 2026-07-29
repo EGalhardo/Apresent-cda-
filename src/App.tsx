@@ -18,7 +18,7 @@ import BrandLogoPage from './pages/BrandLogoPage';
 import { Menu } from 'lucide-react';
 
 function AppContent() {
-  const [currentPage, setCurrentPage] = useState<Page>('intro');
+  const [currentPage, setCurrentPage] = useState<Page>('logo');
   const [mobileOpen, setMobileOpen] = useState(false);
   const mainScrollRef = useRef<HTMLDivElement>(null);
 
