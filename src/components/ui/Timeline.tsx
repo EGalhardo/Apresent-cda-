@@ -26,7 +26,7 @@ export default function Timeline({ steps, orientation = 'vertical', className = 
           return (
             <div
               key={idx}
-              className="relative bg-white border border-slate-200/90 rounded-2xl p-5 shadow-xs hover:shadow-md transition-all duration-300 space-y-3"
+              className="relative bg-white border border-slate-200/90 rounded-2xl p-5 transition-all duration-300 space-y-3"
             >
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
@@ -58,7 +58,7 @@ export default function Timeline({ steps, orientation = 'vertical', className = 
         return (
           <div
             key={idx}
-            className="flex items-start gap-4 p-5 bg-white border border-slate-200/90 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300"
+            className="flex items-start gap-4 p-5 bg-white border border-slate-200/90 rounded-2xl transition-all duration-300"
           >
             <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-2xl bg-blue-50 text-blue-700 font-extrabold border border-blue-100 text-sm">
               {Icon ? <Icon size={20} /> : item.step || `0${idx + 1}`}

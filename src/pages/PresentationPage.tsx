@@ -106,7 +106,7 @@ export default function PresentationPage({ topic, onNavigate }: PresentationPage
               {onNavigate && (
                 <button
                   onClick={() => onNavigate('strategic_goals')}
-                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs px-6 py-3.5 rounded-2xl transition-all flex-shrink-0 shadow-md active:scale-95"
+                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs px-6 py-3.5 rounded-2xl transition-all flex-shrink-0 active:scale-95"
                 >
                   <span>Ver Metas Estratégicas</span>
                   <ArrowRight size={16} />
@@ -350,7 +350,7 @@ export default function PresentationPage({ topic, onNavigate }: PresentationPage
               {onNavigate && (
                 <button
                   onClick={() => onNavigate('objectives')}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-6 py-3.5 rounded-2xl text-xs sm:text-sm transition-all flex items-center gap-2.5 shadow-md active:scale-95 whitespace-nowrap"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-6 py-3.5 rounded-2xl text-xs sm:text-sm transition-all flex items-center gap-2.5 active:scale-95 whitespace-nowrap"
                 >
                   <span>Explorar Plano Financeiro</span>
                   <ArrowRight size={18} />

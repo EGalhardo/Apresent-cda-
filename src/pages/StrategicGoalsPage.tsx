@@ -149,7 +149,7 @@ export default function StrategicGoalsPage() {
                 {/* Title & Description with Sequential Number */}
                 <div className="col-span-12 md:col-span-6 space-y-1.5">
                   <div className="flex items-center gap-2.5 flex-wrap">
-                    <span className="w-7 h-7 rounded-lg bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center font-mono flex-shrink-0 shadow-2xs">
+                    <span className="w-7 h-7 rounded-lg bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center font-mono flex-shrink-0">
                       {index + 1}
                     </span>
                     <Badge variant="blue" size="sm">{goal.category}</Badge>

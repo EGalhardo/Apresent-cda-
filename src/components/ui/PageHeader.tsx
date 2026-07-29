@@ -19,7 +19,7 @@ export default function PageHeader({
   icon: Icon,
 }: PageHeaderProps) {
   return (
-    <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-md transition-all duration-300">
+    <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 transition-all duration-300">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-3 max-w-4xl">
           {(badge || secondaryBadge) && (

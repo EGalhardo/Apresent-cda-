@@ -239,7 +239,7 @@ export default function TopBar({ currentPage, onNavigate, onToggleMobileMenu }: 
           </button>
 
           {showNotifications && (
-            <div className="absolute right-0 top-full mt-2 w-80 bg-white border border-gray-300 rounded-2xl p-4 z-50 shadow-sm">
+            <div className="absolute right-0 top-full mt-2 w-80 bg-white border border-gray-300 rounded-2xl p-4 z-50">
               <div className="flex items-center justify-between mb-3 border-b border-gray-200 pb-2">
                 <p className="text-sm font-bold text-gray-900">Notificações do Sistema</p>
                 <span className="text-[10px] font-bold bg-blue-100 text-blue-900 border border-blue-300 px-2 py-0.5 rounded-lg">3 Activas</span>

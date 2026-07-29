@@ -182,7 +182,7 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
                     className={cn(
                       'w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all border',
                       hasActiveChild
-                        ? 'bg-blue-600 text-white border-blue-700 shadow-xs hover:bg-blue-700'
+                        ? 'bg-blue-600 text-white border-blue-700 hover:bg-blue-700'
                         : isGroupExpanded
                         ? 'bg-slate-100 text-slate-900 border-slate-200 hover:bg-slate-200/80'
                         : 'text-slate-700 border-transparent hover:bg-slate-100 hover:text-slate-900'
@@ -200,7 +200,7 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
                   <div
                     className={cn(
                       'text-center py-2 text-[10px] uppercase font-extrabold tracking-wider rounded-lg mx-1 transition-all',
-                      hasActiveChild ? 'bg-blue-600 text-white shadow-2xs' : 'text-slate-600'
+                      hasActiveChild ? 'bg-blue-600 text-white' : 'text-slate-600'
                     )}
                   >
                     {group.id === 'apresentacao' ? 'APR' : 'FIN'}
@@ -221,7 +221,7 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
                           className={cn(
                             'w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all duration-150 relative group border',
                             isActive
-                              ? 'bg-blue-50 text-blue-700 font-extrabold border-blue-200 shadow-2xs'
+                              ? 'bg-blue-50 text-blue-700 font-extrabold border-blue-200'
                               : 'text-slate-700 border-transparent hover:bg-slate-100 hover:text-blue-700',
                             collapsed && 'justify-center px-0 py-3'
                           )}
@@ -230,7 +230,7 @@ export default function Sidebar({ currentPage, onNavigate, mobileOpen = false, o
                             className={cn(
                               'w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform duration-200 group-hover:scale-110',
                               isActive
-                                ? 'bg-blue-600 text-white shadow-2xs'
+                                ? 'bg-blue-600 text-white'
                                 : 'text-slate-600 group-hover:text-blue-700'
                             )}
                           >

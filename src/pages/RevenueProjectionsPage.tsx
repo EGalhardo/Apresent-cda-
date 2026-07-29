@@ -73,7 +73,7 @@ export default function RevenueProjectionsPage() {
           <Tooltip title="Imprimir / Exportar PDF" purpose="Gerar relatório impresso da demonstração financeira" meaning="Abre o assistente de impressão do navegador">
             <button
               onClick={handlePrint}
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-5 py-3 rounded-2xl text-xs transition-all shadow-md active:scale-95"
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-5 py-3 rounded-2xl text-xs transition-all active:scale-95"
             >
               <Printer size={16} />
               <span>Exportar PDF</span>
@@ -95,14 +95,14 @@ export default function RevenueProjectionsPage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-2xs">
+          <div className="flex items-center gap-2 bg-white p-1.5 rounded-2xl border border-slate-200">
             <button
               onClick={() => {
                 setAdjustedMonth1(true);
                 addToast('Projeção actualizada: Valor corrigido Mês 1 (500.000 AOA)', 'success');
               }}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
-                adjustedMonth1 ? 'bg-blue-600 text-white border-blue-700 shadow-2xs' : 'border-transparent text-slate-700 hover:bg-slate-100'
+                adjustedMonth1 ? 'bg-blue-600 text-white border-blue-700' : 'border-transparent text-slate-700 hover:bg-slate-100'
               }`}
             >
               Com Ajuste Crítico (500k)
@@ -113,7 +113,7 @@ export default function RevenueProjectionsPage() {
                 addToast('Aviso: Projeção original sem ajuste de arranque piloto (2M AOA)', 'warning');
               }}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
-                !adjustedMonth1 ? 'bg-amber-600 text-white border-amber-700 shadow-2xs' : 'border-transparent text-slate-700 hover:bg-slate-100'
+                !adjustedMonth1 ? 'bg-amber-600 text-white border-amber-700' : 'border-transparent text-slate-700 hover:bg-slate-100'
               }`}
             >
               Sem Ajuste (2M)

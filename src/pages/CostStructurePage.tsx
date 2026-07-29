@@ -45,7 +45,7 @@ export default function CostStructurePage() {
           <Tooltip title="Imprimir Relatório de Custos" purpose="Gerar ficheiro PDF da estrutura de custos" meaning="Abre o assistente de impressão">
             <button
               onClick={handlePrint}
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-5 py-3 rounded-2xl text-xs transition-all shadow-md active:scale-95"
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-5 py-3 rounded-2xl text-xs transition-all active:scale-95"
             >
               <Printer size={16} />
               <span>Imprimir Custos</span>
@@ -55,11 +55,11 @@ export default function CostStructurePage() {
       />
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 bg-white border border-slate-200/90 p-1.5 rounded-2xl w-fit shadow-xs print:hidden">
+      <div className="flex items-center gap-2 bg-white border border-slate-200/90 p-1.5 rounded-2xl w-fit print:hidden">
         <button
           onClick={() => setActiveTab('opex')}
           className={`px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all border ${
-            activeTab === 'opex' ? 'bg-blue-50 text-blue-800 border-blue-200 shadow-2xs' : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+            activeTab === 'opex' ? 'bg-blue-50 text-blue-800 border-blue-200' : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50'
           }`}
         >
           Custos Mensais
@@ -67,7 +67,7 @@ export default function CostStructurePage() {
         <button
           onClick={() => setActiveTab('expenses')}
           className={`px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all border ${
-            activeTab === 'expenses' ? 'bg-blue-50 text-blue-800 border-blue-200 shadow-2xs' : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+            activeTab === 'expenses' ? 'bg-blue-50 text-blue-800 border-blue-200' : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50'
           }`}
         >
           Registo de Despesas ({expenses.length})
@@ -75,7 +75,7 @@ export default function CostStructurePage() {
         <button
           onClick={() => setActiveTab('employees')}
           className={`px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all border ${
-            activeTab === 'employees' ? 'bg-blue-50 text-blue-800 border-blue-200 shadow-2xs' : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+            activeTab === 'employees' ? 'bg-blue-50 text-blue-800 border-blue-200' : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50'
           }`}
         >
           Recursos Humanos ({employees.length})
@@ -139,7 +139,7 @@ export default function CostStructurePage() {
               <div className="space-y-3 pt-1">
                 {opexData.map(item => (
                   <Tooltip key={item.name} title={item.name} purpose={item.desc} meaning={`Valor mensal: ${formatAOA(item.value)}`} className="w-full">
-                    <div className="flex items-center justify-between p-3.5 bg-white rounded-2xl border border-slate-200/80 hover:shadow-2xs transition-all">
+                    <div className="flex items-center justify-between p-3.5 bg-white rounded-2xl border border-slate-200/80 transition-all">
                       <div className="flex items-center gap-3">
                         <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: item.color }} />
                         <div>

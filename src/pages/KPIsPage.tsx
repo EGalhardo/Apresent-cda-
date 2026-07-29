@@ -93,7 +93,7 @@ export default function KPIsPage() {
           <Tooltip title="Imprimir Relatório de KPIs" purpose="Gerar ficheiro em PDF com as métricas do sistema" meaning="Abre o menu de impressão">
             <button
               onClick={handlePrint}
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-5 py-3 rounded-2xl text-xs transition-all shadow-md active:scale-95"
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-5 py-3 rounded-2xl text-xs transition-all active:scale-95"
             >
               <Printer size={16} />
               <span>Imprimir Relatório KPIs</span>

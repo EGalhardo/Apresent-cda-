@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 @layer base {
-  * {
+  *, ::before, ::after {
     box-sizing: border-box;
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
   
   body {

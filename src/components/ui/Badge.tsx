@@ -31,7 +31,7 @@ const sizes = {
 export default function Badge({ children, variant = 'gray', size = 'sm', className = '', icon: Icon }: BadgeProps) {
   const badgeStyle = variants[variant] || variants.gray;
   return (
-    <span className={cn('inline-flex items-center gap-1.5 rounded-full border shadow-2xs font-semibold tracking-wide whitespace-nowrap', badgeStyle, sizes[size], className)}>
+    <span className={cn('inline-flex items-center gap-1.5 rounded-full border font-semibold tracking-wide whitespace-nowrap', badgeStyle, sizes[size], className)}>
       {Icon && <Icon size={12} className="flex-shrink-0" />}
       {children}
     </span>

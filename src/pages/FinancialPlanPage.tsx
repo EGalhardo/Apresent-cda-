@@ -133,15 +133,15 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
                 <span>Pontos Chave para a Apresentação</span>
               </p>
               <ul className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-700 font-medium">
-                <li className="flex items-start gap-2 bg-white border border-slate-200 p-3.5 rounded-xl shadow-2xs">
+                <li className="flex items-start gap-2 bg-white border border-slate-200 p-3.5 rounded-xl">
                   <span className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
                   <span className="text-justify"><strong>Mês 1-2:</strong> Entrada do Piloto INAPEM e validação da segurança (Etapa 1).</span>
                 </li>
-                <li className="flex items-start gap-2 bg-white border border-slate-200 p-3.5 rounded-xl shadow-2xs">
+                <li className="flex items-start gap-2 bg-white border border-slate-200 p-3.5 rounded-xl">
                   <span className="w-2 h-2 rounded-full bg-emerald-600 mt-1.5 flex-shrink-0" />
                   <span className="text-justify"><strong>Mês 3:</strong> Ponto de equilíbrio atingido com 5M AOA de receita (supera 3.85M de custos).</span>
                 </li>
-                <li className="flex items-start gap-2 bg-white border border-slate-200 p-3.5 rounded-xl shadow-2xs">
+                <li className="flex items-start gap-2 bg-white border border-slate-200 p-3.5 rounded-xl">
                   <span className="w-2 h-2 rounded-full bg-purple-600 mt-1.5 flex-shrink-0" />
                   <span className="text-justify"><strong>Mês 6:</strong> Meta de 12M AOA / mês activa o gatilho salarial da equipa executiva.</span>
                 </li>
@@ -714,7 +714,7 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
               <div className="pt-6 flex justify-center">
                 <button
                   onClick={() => onNavigate('revenue_projections')}
-                  className="bg-blue-600 hover:bg-blue-500 text-white font-extrabold px-7 py-3.5 rounded-2xl text-xs sm:text-sm transition-all flex items-center gap-2.5 shadow-md hover:shadow-lg active:scale-95"
+                  className="bg-blue-600 hover:bg-blue-500 text-white font-extrabold px-7 py-3.5 rounded-2xl text-xs sm:text-sm transition-all flex items-center gap-2.5 active:scale-95"
                 >
                   <span>Ver Projeções de Receita Completa</span>
                   <ArrowRight size={18} />

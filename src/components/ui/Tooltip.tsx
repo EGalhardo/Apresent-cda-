@@ -99,7 +99,7 @@ export default function Tooltip({
         createPortal(
           <div
             style={transformStyle}
-            className="fixed z-[99999] w-72 max-w-[90vw] p-3.5 bg-slate-900 text-white text-xs rounded-xl border border-slate-700 shadow-2xl pointer-events-none transition-opacity duration-150 animate-in fade-in zoom-in-95"
+            className="fixed z-[99999] w-72 max-w-[90vw] p-3.5 bg-slate-900 text-white text-xs rounded-xl border border-slate-700 pointer-events-none transition-opacity duration-150 animate-in fade-in zoom-in-95"
             role="tooltip"
           >
             {title && (
