@@ -38,15 +38,6 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
     /* 1. OBJETIVOS                                                           */
     /* ---------------------------------------------------------------------- */
     case 'objectives': {
-      const breakEvenChartData = [
-        { month: 'Mês 1', receita: 500000, opex: 3850000, label: 'Piloto INAPEM' },
-        { month: 'Mês 2', receita: 3000000, opex: 3850000, label: 'Fase Gate 1' },
-        { month: 'Mês 3', receita: 5000000, opex: 3850000, label: 'Break-Even' },
-        { month: 'Mês 4', receita: 7000000, opex: 3850000, label: 'Lucro Positivo' },
-        { month: 'Mês 5', receita: 9000000, opex: 3850000, label: 'Adesão AGT' },
-        { month: 'Mês 6', receita: 12000000, opex: 3850000, label: 'Gatilho Salarial' },
-      ];
-
       return (
         <div className="space-y-6 max-w-7xl mx-auto">
           {/* Executive Header Banner */}
@@ -102,52 +93,6 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
               </Card>
             </Tooltip>
           </div>
-
-          {/* Visual Presentation Chart */}
-          <Card className="space-y-4">
-            <SectionHeader
-              title="Trajectória até ao Ponto de Equilíbrio & Gatilho Salarial (Mês 1 ao Mês 6)"
-              subtitle="Visualização gráfica do crescimento das receitas em comparação com os custos de funcionamento mensais."
-              badge="Gráfico de Apresentação"
-              badgeVariant="blue"
-            />
-
-            <div className="h-72 w-full pt-2">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={breakEvenChartData} margin={{ top: 10, right: 30, left: 10, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                  <XAxis dataKey="month" tick={{ fontSize: 12, fill: '#475569', fontWeight: 600 }} axisLine={false} tickLine={false} />
-                  <YAxis tickFormatter={v => formatAOA(v as number, true)} tick={{ fontSize: 11, fill: '#475569' }} axisLine={false} tickLine={false} width={80} />
-                  <RechartsTooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
-                  <Legend wrapperStyle={{ fontSize: 12, fontWeight: 600 }} />
-                  <Bar dataKey="receita" name="Receita Mensal Projectada" fill="#2563eb" radius={[8, 8, 0, 0]} />
-                  <Bar dataKey="opex" name="Custos de Funcionamento Mensais (3.85M AOA)" fill="#f59e0b" radius={[8, 8, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-
-            {/* Presentation Talking Points */}
-            <div className="bg-white border border-slate-200/90 p-5 rounded-2xl space-y-3">
-              <p className="text-xs font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                <Sparkles size={16} className="text-blue-600" />
-                <span>Pontos Chave para a Apresentação</span>
-              </p>
-              <ul className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-700 font-medium">
-                <li className="flex items-start gap-2 bg-white border border-slate-200 p-3.5 rounded-xl">
-                  <span className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
-                  <span className="text-justify"><strong>Mês 1-2:</strong> Entrada do Piloto INAPEM e validação da segurança (Etapa 1).</span>
-                </li>
-                <li className="flex items-start gap-2 bg-white border border-slate-200 p-3.5 rounded-xl">
-                  <span className="w-2 h-2 rounded-full bg-emerald-600 mt-1.5 flex-shrink-0" />
-                  <span className="text-justify"><strong>Mês 3:</strong> Ponto de equilíbrio atingido com 5M AOA de receita (supera 3.85M de custos).</span>
-                </li>
-                <li className="flex items-start gap-2 bg-white border border-slate-200 p-3.5 rounded-xl">
-                  <span className="w-2 h-2 rounded-full bg-purple-600 mt-1.5 flex-shrink-0" />
-                  <span className="text-justify"><strong>Mês 6:</strong> Meta de 12M AOA / mês activa o gatilho salarial da equipa executiva.</span>
-                </li>
-              </ul>
-            </div>
-          </Card>
         </div>
       );
     }
@@ -156,12 +101,6 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
     /* 2. MODELO DE NEGÓCIO                                                   */
     /* ---------------------------------------------------------------------- */
     case 'business_model': {
-      const revenueMixData = [
-        { name: 'Taxa de Implementação (10M/inst)', value: 45, color: '#2563eb' },
-        { name: 'Subscrições SaaS (750k - 2M/mês)', value: 40, color: '#10b981' },
-        { name: 'Serviços de API & Notificações', value: 15, color: '#8b5cf6' },
-      ];
-
       return (
         <div className="space-y-6 max-w-7xl mx-auto">
           {/* Header */}
@@ -200,64 +139,6 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
               <p className="text-xs text-slate-600 leading-relaxed font-medium text-justify">
                 Tarifação por volume para envio massivo de SMS, notificações WhatsApp e validação documental por API.
               </p>
-            </Card>
-          </div>
-
-          {/* Visual Revenue Mix Chart & Process Flow */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Pie Chart */}
-            <Card className="space-y-4">
-              <SectionHeader
-                title="Composição Estimada da Receita (Ano 1)"
-                subtitle="Distribuição percentual entre taxas de adesão, subscrições e serviços variáveis."
-              />
-              <div className="h-64 w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie data={revenueMixData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={85} innerRadius={45} paddingAngle={4}>
-                      {revenueMixData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.color} />
-                      ))}
-                    </Pie>
-                    <RechartsTooltip formatter={(v: unknown) => `${v}% da Receita`} contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
-                    <Legend wrapperStyle={{ fontSize: 11, fontWeight: 600 }} />
-                  </PieChart>
-                </ResponsiveContainer>
-              </div>
-            </Card>
-
-            {/* Process Flow Diagram */}
-            <Card className="space-y-4">
-              <SectionHeader
-                title="Fluxo de Valor do Cliente Institucional"
-                subtitle="Ciclo de vida comercial e transição para receita recorrente."
-              />
-
-              <Timeline
-                steps={[
-                  {
-                    step: '1',
-                    title: 'Integração & Configuração Técnica',
-                    description: 'Entrada com pagamento da taxa de 10M AOA para integração de sistemas e homologação oficial.',
-                    badge: 'Taxa de Adesão',
-                    badgeVariant: 'blue',
-                  },
-                  {
-                    step: '2',
-                    title: 'Activacao da Subscrição Mensal',
-                    description: 'Facturação recorrente mensal (750k a 2M AOA/mês) garantindo sustentabilidade e suporte contínuo.',
-                    badge: 'MRR Recorrente',
-                    badgeVariant: 'emerald',
-                  },
-                  {
-                    step: '3',
-                    title: 'Expansão por Notificações & APIs',
-                    description: 'Crescimento do ticket médio com base no volume de comunicações, alertas SMS e consultas API enviadas.',
-                    badge: 'Serviços Variáveis',
-                    badgeVariant: 'purple',
-                  },
-                ]}
-              />
             </Card>
           </div>
         </div>
@@ -305,50 +186,6 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
             </div>
           </Card>
 
-          {/* Clean High-Contrast Table */}
-          <Card padding={false} className="overflow-hidden">
-            <div className="p-6 bg-white border-b border-slate-200">
-              <SectionHeader title="Tabela Discriminada de Tarifários" subtitle="Resumo das taxas de adesão e licenças recorrentes por segmento institucional" />
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs text-left">
-                <thead className="bg-white text-slate-800 font-extrabold uppercase tracking-wider border-b border-slate-200">
-                  <tr>
-                    <th className="px-5 py-4">Segmento de Cliente</th>
-                    <th className="px-5 py-4">Taxa de Adesão Inicial</th>
-                    <th className="px-5 py-4">Licença Mensal</th>
-                    <th className="px-5 py-4">Capacidade & Incluídos</th>
-                  </tr>
-                </thead>
-                <tbody className="font-medium text-slate-800 divide-y divide-slate-100">
-                  <tr className="hover:bg-blue-50/30 transition-colors">
-                    <td className="px-5 py-4 font-bold text-slate-900">Institutos Públicos (ex: INAPEM)</td>
-                    <td className="px-5 py-4 font-bold text-blue-700">10.000.000 AOA</td>
-                    <td className="px-5 py-4 font-bold text-emerald-700">750.000 AOA / mês</td>
-                    <td className="px-5 py-4 text-slate-600 text-justify">Caixas digitais ilimitadas, 5.000 notificações/mês</td>
-                  </tr>
-                  <tr className="hover:bg-blue-50/30 transition-colors">
-                    <td className="px-5 py-4 font-bold text-slate-900">Ministérios & Adm. Central</td>
-                    <td className="px-5 py-4 font-bold text-blue-700">10.000.000 AOA</td>
-                    <td className="px-5 py-4 font-bold text-emerald-700">1.200.000 AOA / mês</td>
-                    <td className="px-5 py-4 text-slate-600 text-justify">Acesso via API, suporte prioritário 24/7</td>
-                  </tr>
-                  <tr className="hover:bg-blue-50/30 transition-colors">
-                    <td className="px-5 py-4 font-bold text-slate-900">Organismos Fiscais (AGT)</td>
-                    <td className="px-5 py-4 font-bold text-blue-700">10.000.000 AOA</td>
-                    <td className="px-5 py-4 font-bold text-emerald-700">1.500.000 AOA / mês</td>
-                    <td className="px-5 py-4 text-slate-600 text-justify">Notificações fiscais massivas e arquivo seguro</td>
-                  </tr>
-                  <tr className="hover:bg-blue-50/30 transition-colors">
-                    <td className="px-5 py-4 font-bold text-slate-900">Bancos e Inst. Financeiras</td>
-                    <td className="px-5 py-4 font-bold text-blue-700">10.000.000 AOA</td>
-                    <td className="px-5 py-4 font-bold text-emerald-700">2.000.000 AOA / mês</td>
-                    <td className="px-5 py-4 text-slate-600 text-justify">Assinatura qualificada e módulo IA anticorrupção</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </Card>
         </div>
       );
     }
@@ -513,12 +350,6 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
     /* 6. INVESTIMENTO INICIAL                                                */
     /* ---------------------------------------------------------------------- */
     case 'initial_investment': {
-      const trancheData = [
-        { name: 'Tranche 1 (40%)', amount: 13836000, color: '#2563eb', desc: 'Instalação & Centro Operacional' },
-        { name: 'Tranche 2 (35%)', amount: 12106500, color: '#8b5cf6', desc: 'Mês 3 após relatório do Piloto' },
-        { name: 'Tranche 3 (25%)', amount: 8647500, color: '#10b981', desc: 'Mês 6 com KPIs do Marco de Controlo 1' },
-      ];
-
       return (
         <div className="space-y-6 max-w-7xl mx-auto">
           {/* Header */}
@@ -556,24 +387,6 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
               </p>
             </Card>
           </div>
-
-          {/* Pie Chart of Tranches */}
-          <Card className="space-y-4">
-            <SectionHeader title="Distribuição das Tranches de Liberação de Capital" subtitle="Total de 34.590.000 AOA condicionado ao cumprimento dos marcos operacionais." />
-            <div className="h-64 w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie data={trancheData} dataKey="amount" nameKey="name" cx="50%" cy="50%" outerRadius={85} innerRadius={45} paddingAngle={4}>
-                    {trancheData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <RechartsTooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
-                  <Legend wrapperStyle={{ fontSize: 11, fontWeight: 600 }} />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-          </Card>
         </div>
       );
     }
@@ -709,18 +522,6 @@ export default function FinancialPlanPage({ topic, onNavigate }: FinancialPlanPa
                 color="purple"
               />
             </div>
-
-            {onNavigate && (
-              <div className="pt-6 flex justify-center">
-                <button
-                  onClick={() => onNavigate('revenue_projections')}
-                  className="bg-blue-600 hover:bg-blue-500 text-white font-extrabold px-7 py-3.5 rounded-2xl text-xs sm:text-sm transition-all flex items-center gap-2.5 active:scale-95"
-                >
-                  <span>Ver Projeções de Receita Completa</span>
-                  <ArrowRight size={18} />
-                </button>
-              </div>
-            )}
           </Card>
         </div>
       );

@@ -110,50 +110,6 @@ export default function CostStructurePage() {
               icon={Cpu}
             />
           </div>
-
-          {/* Chart & List */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Card className="space-y-4">
-              <SectionHeader title="Distribuição Percentual do OPEX" subtitle="Proporções das principais rubricas de custo operacional." />
-              <div className="h-72 w-full pt-2">
-                <AnimatedChartWrapper className="w-full h-full">
-                  {({ isAnimationActive, key }) => (
-                    <ResponsiveContainer width="100%" height="100%" key={key}>
-                      <PieChart>
-                        <Pie data={opexData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={90} innerRadius={50} paddingAngle={4} isAnimationActive={isAnimationActive} animationDuration={1500}>
-                          {opexData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={entry.color} />
-                          ))}
-                        </Pie>
-                        <RechartsTooltip formatter={(v: unknown) => formatAOA(v as number)} contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
-                        <Legend wrapperStyle={{ fontSize: 11, fontWeight: 600 }} />
-                      </PieChart>
-                    </ResponsiveContainer>
-                  )}
-                </AnimatedChartWrapper>
-              </div>
-            </Card>
-
-            <Card className="space-y-4">
-              <SectionHeader title="Detalhamento das Rubricas do OPEX" subtitle="Valores discriminados por área de suporte." />
-              <div className="space-y-3 pt-1">
-                {opexData.map(item => (
-                  <Tooltip key={item.name} title={item.name} purpose={item.desc} meaning={`Valor mensal: ${formatAOA(item.value)}`} className="w-full">
-                    <div className="flex items-center justify-between p-3.5 bg-white rounded-2xl border border-slate-200/80 transition-all">
-                      <div className="flex items-center gap-3">
-                        <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: item.color }} />
-                        <div>
-                          <p className="text-xs font-extrabold text-slate-900">{item.name}</p>
-                          <p className="text-[11px] text-slate-500 font-medium">{item.desc}</p>
-                        </div>
-                      </div>
-                      <span className="text-xs font-extrabold text-slate-900 font-mono"><CountUp value={formatAOA(item.value, true)} /></span>
-                    </div>
-                  </Tooltip>
-                ))}
-              </div>
-            </Card>
-          </div>
         </div>
       )}
 

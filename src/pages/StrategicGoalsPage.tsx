@@ -131,7 +131,7 @@ export default function StrategicGoalsPage() {
       {/* Vertical List */}
       <Card padding={false} className="overflow-hidden">
         <div className="p-4 bg-white border-b border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-wider grid grid-cols-12 gap-4 items-center">
-          <div className="col-span-12 md:col-span-6">Título & Descrição da Meta</div>
+          <div className="col-span-12 md:col-span-6">Título da Meta</div>
           <div className="col-span-6 md:col-span-2 text-left md:text-center">Estado</div>
           <div className="col-span-6 md:col-span-4">Progresso & Alvo</div>
         </div>
@@ -146,7 +146,7 @@ export default function StrategicGoalsPage() {
               className="w-full"
             >
               <div className="p-5 sm:p-6 hover:bg-blue-50/30 transition-colors grid grid-cols-12 gap-4 items-center">
-                {/* Title & Description with Sequential Number */}
+                {/* Title with Sequential Number */}
                 <div className="col-span-12 md:col-span-6 space-y-1.5">
                   <div className="flex items-center gap-2.5 flex-wrap">
                     <span className="w-7 h-7 rounded-lg bg-blue-600 text-white font-extrabold text-xs flex items-center justify-center font-mono flex-shrink-0">
@@ -157,9 +157,6 @@ export default function StrategicGoalsPage() {
                       {goal.title}
                     </h3>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed pl-9 md:pl-0 font-medium text-justify">
-                    {goal.description}
-                  </p>
                 </div>
 
                 {/* Status Badge */}

@@ -133,61 +133,6 @@ export default function KPIsPage() {
           icon={Coins}
         />
       </div>
-
-      {/* Progress Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card className="space-y-4">
-          <SectionHeader title="Metas de Execução Operacional & Financeira" subtitle="Progresso acumulado relativamente às metas do Ano 1." />
-          <div className="space-y-4">
-            {mainProgressKpis.map((item) => (
-              <Tooltip key={item.id} title={item.title} purpose={item.actualText} meaning={item.meaning} className="w-full">
-                <div className="p-4 bg-white rounded-2xl border border-slate-200/80 space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-extrabold text-slate-900">{item.title}</span>
-                    <span className="font-bold text-slate-600 font-mono">{item.actualText}</span>
-                  </div>
-                  <ProgressBar value={item.pct} color={item.color} showPercent={true} />
-                </div>
-              </Tooltip>
-            ))}
-          </div>
-        </Card>
-
-        {/* Radar Chart */}
-        <Card className="space-y-4">
-          <SectionHeader title="Radar de Desempenho Multidimensional" subtitle="Avaliação de maturidade técnica, financeira e institucional." />
-          <div className="h-72 w-full pt-2">
-            <AnimatedChartWrapper className="w-full h-full">
-              {({ isAnimationActive, key }) => (
-                <ResponsiveContainer width="100%" height="100%" key={key}>
-                  <RadarChart data={radarData}>
-                    <PolarGrid stroke="#e2e8f0" />
-                    <PolarAngleAxis dataKey="metric" tick={{ fontSize: 11, fill: '#475569', fontWeight: 600 }} />
-                    <Radar name="Maturidade" dataKey="value" stroke="#2563eb" fill="#3b82f6" fillOpacity={0.35} isAnimationActive={isAnimationActive} animationDuration={1500} />
-                    <RechartsTooltip contentStyle={{ borderRadius: 16, border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', fontSize: 12 }} />
-                  </RadarChart>
-                </ResponsiveContainer>
-              )}
-            </AnimatedChartWrapper>
-          </div>
-        </Card>
-      </div>
-
-      {/* Commercial KPIs Grid */}
-      <Card className="space-y-4">
-        <SectionHeader title="Métricas Comerciais & Unidades de Valor" subtitle="Indicadores unitários de desempenho comercial." />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-1">
-          {commercialKPIs.map((kpi, idx) => (
-            <StatCard
-              key={idx}
-              title={kpi.label}
-              value={kpi.value}
-              subtitle={kpi.unit}
-              color={kpi.color}
-            />
-          ))}
-        </div>
-      </Card>
     </div>
   );
 }
